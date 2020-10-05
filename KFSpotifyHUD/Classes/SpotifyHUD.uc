@@ -69,10 +69,6 @@ simulated function UpdateHud()
 		HealthDigits.Tints[0].R = 196;
 		HealthDigits.Tints[0].G = 206;
 		HealthDigits.Tints[0].B = 0;
-
-		HealthDigits.Tints[1].R = 196;
-		HealthDigits.Tints[1].G = 206;
-		HealthDigits.Tints[1].B = 0;
 	}
 	else if ( PawnOwner.Health < 50 )
 	{
@@ -81,20 +77,12 @@ simulated function UpdateHud()
 			HealthDigits.Tints[0].R = 255;
 			HealthDigits.Tints[0].G = 255;
 			HealthDigits.Tints[0].B = 255;
-
-			HealthDigits.Tints[1].R = 255;
-			HealthDigits.Tints[1].G = 255;
-			HealthDigits.Tints[1].B = 255;
 		}
 		else
 		{
 			HealthDigits.Tints[0].R = 60;
 			HealthDigits.Tints[0].G = 179;
 			HealthDigits.Tints[0].B = 113;
-
-			HealthDigits.Tints[1].R = 60;
-			HealthDigits.Tints[1].G = 179;
-			HealthDigits.Tints[1].B = 113;
 
 			if ( Level.TimeSeconds > SwitchDigitColorTime + 0.2 )
 			{
@@ -104,13 +92,8 @@ simulated function UpdateHud()
 	}
 	else
 	{
-		HealthDigits.Tints[0].R = 255;
-		HealthDigits.Tints[0].G = 255;
-		HealthDigits.Tints[0].B = 255;
-
-		HealthDigits.Tints[1].R = 255;
-		HealthDigits.Tints[1].G = 255;
-		HealthDigits.Tints[1].B = 255;
+		HealthDigits.Tints[0] = default.HealthDigits.Tints[0];
+    	HealthDigits.Tints[1] = HealthDigits.Tints[0];
 	}
 
 
@@ -122,17 +105,17 @@ simulated function UpdateHud()
 
 	if ( SyringeDigits.Value < 50 )
 	{
-		SyringeDigits.Tints[0].R = 128;
-		SyringeDigits.Tints[0].G = 128;
-		SyringeDigits.Tints[0].B = 128;
+		SyringeDigits.Tints[0].R = 60;
+		SyringeDigits.Tints[0].G = 179;
+		SyringeDigits.Tints[0].B = 113;
 
 		SyringeDigits.Tints[1] = SyringeDigits.Tints[0];
 	}
 	else if ( SyringeDigits.Value < 100 )
 	{
-		SyringeDigits.Tints[0].R = 192;
-		SyringeDigits.Tints[0].G = 96;
-		SyringeDigits.Tints[0].B = 96;
+		SyringeDigits.Tints[0].R = 255;
+		SyringeDigits.Tints[0].G = 255;
+		SyringeDigits.Tints[0].B = 255;
 
 		SyringeDigits.Tints[1] = SyringeDigits.Tints[0];
 	}
@@ -154,25 +137,25 @@ simulated function UpdateHud()
 
 			if ( QuickSyringeDigits.Value < 50 )
 			{
-				QuickSyringeDigits.Tints[0].R = 128;
-				QuickSyringeDigits.Tints[0].G = 128;
-				QuickSyringeDigits.Tints[0].B = 128;
+				QuickSyringeDigits.Tints[0].R = 60;
+				QuickSyringeDigits.Tints[0].G = 179;
+				QuickSyringeDigits.Tints[0].B = 113;
 
 				QuickSyringeDigits.Tints[1] = QuickSyringeDigits.Tints[0];
 			}
 			else if ( QuickSyringeDigits.Value < 100 )
 			{
-				QuickSyringeDigits.Tints[0].R = 192;
-				QuickSyringeDigits.Tints[0].G = 96;
-				QuickSyringeDigits.Tints[0].B = 96;
+				QuickSyringeDigits.Tints[0].R = 255;
+				QuickSyringeDigits.Tints[0].G = 255;
+				QuickSyringeDigits.Tints[0].B = 255;
 
 				QuickSyringeDigits.Tints[1] = QuickSyringeDigits.Tints[0];
 			}
 			else
 			{
 				QuickSyringeDigits.Tints[0].R = 255;
-				QuickSyringeDigits.Tints[0].G = 64;
-				QuickSyringeDigits.Tints[0].B = 64;
+				QuickSyringeDigits.Tints[0].G = 255;
+				QuickSyringeDigits.Tints[0].B = 255;
 
 				QuickSyringeDigits.Tints[1] = QuickSyringeDigits.Tints[0];
 			}
@@ -185,7 +168,7 @@ simulated function UpdateHud()
 		KFPlayerController(PlayerOwner).CheckForHint(51);
 	}
 
-	Super.UpdateHud();
+	Super(HudBase).UpdateHud();
 }
 
 defaultproperties

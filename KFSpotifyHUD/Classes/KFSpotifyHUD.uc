@@ -1,24 +1,22 @@
 class KFSpotifyHUD extends Mutator;
 
-function postBeginPlay()
+function PostBeginPlay()
 {
-  local KFGameType GT;
+  	local KFGameType GT;
 
-  super.postBeginPlay();
-
-  GT = KFGameType(level.game);
-
-  if (GT != none)
-  {
-    GT.hudType = string(class'SpotifyHUD');
-  }
+  	super.PostBeginPlay();
+  	GT = KFGameType(level.game);
+  	if (GT != none)
+  	{
+  	  GT.HUDType = string(class'SpotifyHUD');
+  	}
 }
 
 defaultproperties
 {
 	// Mut Vars
     GroupName="KF-SpotifyHUD"
-    FriendlyName="Spotify HUD"
+    FriendlyName="Spotify HUD - v1.0"
     Description="Replaces the HUD with a beautiful, simple: Green, Dark & White HUD; by Vel-San"
 
 	// Mandatory Vars
