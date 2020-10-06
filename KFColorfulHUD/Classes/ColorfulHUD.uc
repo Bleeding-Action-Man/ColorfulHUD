@@ -479,4 +479,16 @@ defaultproperties
 	// Cash
 	CashIcon=(WidgetTexture=Texture'ColorfulHUD.HUD.Hud_Pound_Symbol',RenderStyle=STY_Alpha,TextureCoords=(X2=64,Y2=64),TextureScale=0.3,DrawPivot=DP_UpperLeft,PosX=0.85,PosY=0.86,Scale=1.000000,Tints[0]=(B=255,G=255,R=255,A=255),Tints[1]=(B=255,G=255,R=255,A=255))
 	CashDigits=(RenderStyle=STY_Alpha,TextureScale=0.50,DrawPivot=DP_UpperLeft,PosX=0.882,PosY=0.867,Tints[0]=(R=255,G=255,B=255,A=255),Tints[1]=(R=255,G=255,B=255,A=255))
+
+	// Veterancy Stars
+	VetStarMaterial=Material'ColorfulHUD.HUD.Hud_Perk_Star'
+	VetStarGoldMaterial=Material'ColorfulHUD.HUD.Hud_Perk_Star_Gold'
+
+	// Inventory
+	InventoryBackgroundTexture=Texture'ColorfulHUD.HUD.HUD_Rectangel_W_Stroke'
+	SelectedInventoryBackgroundTexture=Texture'ColorfulHUD.HUD.HUD_Rectangel_selected'
+
+	// Door Welding
+	DoorWelderBG=Texture'ColorfulHUD.HUD.Hud_Box_128x64';
+
 }
