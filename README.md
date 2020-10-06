@@ -19,6 +19,7 @@ Elements Replaced:
 - Grenades
 - PipeBombs
 - Perk Stars/Levels
+- Inventory Overlay
 ```
 
 Anything else that i've forgot about :D

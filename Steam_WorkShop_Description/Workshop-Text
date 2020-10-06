@@ -17,9 +17,10 @@ Elements Replaced:
 - Grenades
 - PipeBombs
 - Perk Stars/Levels
+- Inventory Overlay
 [/code]
 
-Anything else that i've forgot about :D
+Anything else that I've forgot about :D
 
 Elements that haven't been changed yet:
 
@@ -27,7 +28,17 @@ Elements that haven't been changed yet:
 - Perk Icons
 [/code]
 
-Once enabled, anyone who joins your server will also have this HUD.
+[H1][b][u]Notes[/u][/b][/H1]
+
+For Players:
+
+- Once enabled, anyone who joins your server will also have this HUD.
+- Tested with ServerPerks & working properly.
+- NOT Tested with ScrN Balance!
+
+For Devs:
+
+- This 'Might' have issues with any other mod or mutator that touches HUDKillingFloor Class.
 
 [H1][b][u]Number Of Files[/u][/b][/H1]
 
