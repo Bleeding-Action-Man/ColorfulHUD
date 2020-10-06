@@ -12,6 +12,11 @@ function PostBeginPlay()
   	}
 }
 
+simulated function ReplacePerkIcons()
+{
+
+}
+
 defaultproperties
 {
 	// Mut Vars

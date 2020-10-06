@@ -268,10 +268,10 @@ simulated function DrawKFHUDTextElements(Canvas C)
 		return;
 	}
 
-	// Draw the shop pointer
+	// Draw the Custom Green Trader Arrow
 	if ( ShopDirPointer == None )
 	{
-		ShopDirPointer = Spawn(Class'KFShopDirectionPointer');
+		ShopDirPointer = Spawn(Class'GreenShopArrow');
 		ShopDirPointer.bHidden = bHideHud;
 	}
 
@@ -440,8 +440,28 @@ defaultproperties
 	// Secondary Clips(All Weapons except Welder and Syringe)
 	SecondaryClipsBG=(WidgetTexture=Texture'ColorfulHUD.HUD.Hud_Box_128x64',RenderStyle=STY_Alpha,TextureCoords=(X2=128,Y2=64),TextureScale=0.35,DrawPivot=DP_UpperLeft,PosX=0.705,PosY=0.935,ScaleMode=SM_Right,Scale=1.000000,Tints[0]=(B=255,G=255,R=255,A=255),Tints[1]=(B=255,G=255,R=255,A=255))
 	SecondaryClipsDigits=(RenderStyle=STY_Alpha,TextureScale=0.30,DrawPivot=DP_UpperLeft,PosX=0.731,PosY=0.95,Tints[0]=(R=255,G=255,B=255,A=255),Tints[1]=(R=255,G=255,B=255,A=255))
-  	SecondaryClipsIcon=(WidgetTexture=Texture'KillingFloor2HUD.HUD.Hud_M79',RenderStyle=STY_Alpha,TextureCoords=(X2=64,Y2=64),TextureScale=0.22,DrawPivot=DP_UpperLeft,PosX=0.704,PosY=0.943,ScaleMode=SM_Right,Scale=1.000000,Tints[0]=(B=255,G=255,R=255,A=255),Tints[1]=(B=255,G=255,R=255,A=255))
+  	SecondaryClipsIcon=(WidgetTexture=Texture'ColorfulHUD.HUD.Hud_M79',RenderStyle=STY_Alpha,TextureCoords=(X2=64,Y2=64),TextureScale=0.22,DrawPivot=DP_UpperLeft,PosX=0.704,PosY=0.943,ScaleMode=SM_Right,Scale=1.000000,Tints[0]=(B=255,G=255,R=255,A=255),Tints[1]=(B=255,G=255,R=255,A=255))
 
+	// Per Weapon Icons:
+	// PipeBomb
+	PipeBombIcon=(WidgetTexture=Texture'ColorfulHUD.HUD.Hud_Pipebomb',RenderStyle=STY_Alpha,TextureCoords=(X2=64,Y2=64),TextureScale=0.30,DrawPivot=DP_UpperLeft,PosX=0.85,PosY=0.9377,ScaleMode=SM_Right,Scale=1.000000,Tints[0]=(B=255,G=255,R=255,A=255),Tints[1]=(B=255,G=255,R=255,A=255))
+	// M79
+	M79Icon=(WidgetTexture=Texture'ColorfulHUD.HUD.Hud_M79',RenderStyle=STY_Alpha,TextureCoords=(X2=64,Y2=64),TextureScale=0.22,DrawPivot=DP_UpperLeft,PosX=0.853,PosY=0.943,ScaleMode=SM_Right,Scale=1.000000,Tints[0]=(B=255,G=255,R=255,A=255),Tints[1]=(B=255,G=255,R=255,A=255))
+	// HuskAmmoIcon
+	HuskAmmoIcon=(WidgetTexture=Texture'ColorfulHUD.HUD.Hud_Flame',RenderStyle=STY_Alpha,TextureCoords=(X2=64,Y2=64),TextureScale=0.22,DrawPivot=DP_UpperLeft,PosX=0.848,PosY=0.943,ScaleMode=SM_Right,Scale=1.000000,Tints[0]=(B=255,G=255,R=255,A=255),Tints[1]=(B=255,G=255,R=255,A=255))
+	// LAW
+	LawRocketIcon=(WidgetTexture=Texture'ColorfulHUD.HUD.Hud_Law_Rocket',RenderStyle=STY_Alpha,TextureCoords=(X2=64,Y2=64),TextureScale=0.22,DrawPivot=DP_UpperLeft,PosX=0.853,PosY=0.943,ScaleMode=SM_Right,Scale=1.000000,Tints[0]=(B=255,G=255,R=255,A=255),Tints[1]=(B=255,G=255,R=255,A=255))
+	// Crossbow
+	ArrowheadIcon=(WidgetTexture=Texture'ColorfulHUD.HUD.Hud_Arrowhead',RenderStyle=STY_Alpha,TextureCoords=(X2=64,Y2=64),TextureScale=0.22,DrawPivot=DP_UpperLeft,PosX=0.853,PosY=0.943,ScaleMode=SM_Right,Scale=1.000000,Tints[0]=(B=255,G=255,R=255,A=255),Tints[1]=(B=255,G=255,R=255,A=255))
+	// Cross buzzsaw
+	SawAmmoIcon=(WidgetTexture=Texture'ColorfulHUD.HUD.Hud_Sawblade',RenderStyle=STY_Alpha,TextureCoords=(X2=64,Y2=64),TextureScale=0.22,DrawPivot=DP_UpperLeft,PosX=0.853,PosY=0.943,ScaleMode=SM_Right,Scale=1.000000,Tints[0]=(B=255,G=255,R=255,A=255),Tints[1]=(B=255,G=255,R=255,A=255))
+	// Shotgun, Boomstick, and Winchester
+	SingleBulletIcon=(WidgetTexture=Texture'ColorfulHUD.HUD.Hud_Single_Bullet',RenderStyle=STY_Alpha,TextureCoords=(X2=64,Y2=64),TextureScale=0.22,DrawPivot=DP_UpperLeft,PosX=0.853,PosY=0.943,ScaleMode=SM_Right,Scale=1.000000,Tints[0]=(B=255,G=255,R=255,A=255),Tints[1]=(B=255,G=255,R=255,A=255))
+	// Flamethrower
+	FlameIcon=(WidgetTexture=Texture'ColorfulHUD.HUD.Hud_Flame',RenderStyle=STY_Alpha,TextureCoords=(X2=64,Y2=64),TextureScale=0.2,DrawPivot=DP_UpperLeft,PosX=0.781,PosY=0.945,ScaleMode=SM_Right,Scale=1.000000,Tints[0]=(B=255,G=255,R=255,A=255),Tints[1]=(B=255,G=255,R=255,A=255))
+	FlameTankIcon=(WidgetTexture=Texture'ColorfulHUD.HUD.Hud_Flame_Tank',RenderStyle=STY_Alpha,TextureCoords=(X2=64,Y2=64),TextureScale=0.22,DrawPivot=DP_UpperLeft,PosX=0.853,PosY=0.943,ScaleMode=SM_Right,Scale=1.000000,Tints[0]=(B=255,G=255,R=255,A=255),Tints[1]=(B=255,G=255,R=255,A=255))
+	// Zed Gun
+    ZEDAmmoIcon=(WidgetTexture=Texture'ColorfulHUD.HUD.ZED_Hud_Bolt',RenderStyle=STY_Alpha,TextureCoords=(X2=64,Y2=64),TextureScale=0.2,DrawPivot=DP_UpperLeft,PosX=0.781,PosY=0.945,ScaleMode=SM_Right,Scale=1.000000,Tints[0]=(B=255,G=255,R=255,A=255),Tints[1]=(B=255,G=255,R=255,A=255))
 	// All Other Weapons
 	ClipsIcon=(WidgetTexture=Texture'ColorfulHUD.HUD.Hud_Ammo_Clip',RenderStyle=STY_Alpha,TextureCoords=(X2=64,Y2=64),TextureScale=0.22,DrawPivot=DP_UpperLeft,PosX=0.853,PosY=0.943,ScaleMode=SM_Right,Scale=1.000000,Tints[0]=(B=255,G=255,R=255,A=255),Tints[1]=(B=255,G=255,R=255,A=255))
 
