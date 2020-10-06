@@ -1,15 +1,46 @@
 Replaces the HUD with a beautiful, simple: Green, Dark & White HUD; [Server-Side]
 
+Elements Replaced:
+
+[code]
+- All Ammo Types
+- HP
+- Armor
+- Syringe
+- Welder
+- Text Colors
+- Border/Box Colors
+- Wave Indicator
+- Time Indicator
+- Trader Arrow
+- Magazine Clip
+- Grenades
+- PipeBombs
+- Perk Stars/Levels
+[/code]
+
+Anything else that i've forgot about :D
+
+Elements that haven't been changed yet:
+
+[code]
+- Perk Icons
+[/code]
+
+Once enabled, anyone who joins your server will also have this HUD.
+
 [H1][b][u]Number Of Files[/u][/b][/H1]
 
-- 3
+- 4
 
 [H1][b][u]File Names[/u][/b][/H1]
 
-- \System\KFSpotifyHUD.u
-- \System\KFSpotifyHUD.ucl
+- \System\KFColorfulHUD.u
+- \System\KFColorfulHUD.ucl
 
-- \Textures\KFSpotifyHUD.utx
+- \Textures\KFColorfulHUD.utx
+
+- \StaticMeshes\GreenShopArrow.usx
 
 [H1][b][u]Usage[/u][/b][/H1]
 
@@ -19,10 +50,10 @@ Replaces the HUD with a beautiful, simple: Green, Dark & White HUD; [Server-Side
 
 [H1][b][u]Class Names[/u][/b][/H1]
 
-- KFSpotifyHUD.KFSpotifyHUD
+- KFColorfulHUD.KFColorfulHUD
 
 [H1][b][u]Manual Download Links (Recommended)[/u][/b][/H1]
 
-You can find it under 'Not Whitelisted' folder named 'KF-SpotifyHUD-v1.0'
+You can find it under 'Not Whitelisted' folder named 'KF-ColorfulHUD-v1.0'
 
 MEGA Link: https://mega DOT nz/folder/YDoEmKiC#s6FGAtgh40-TvB4bHsLaMQ

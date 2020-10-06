@@ -14,7 +14,7 @@ function PostBeginPlay()
 
 simulated function ReplacePerkIcons()
 {
-
+	// TODO: Replace Perk Icons on StartUp
 }
 
 defaultproperties
