@@ -7,7 +7,8 @@ function PostBeginPlay()
   	local KFGameType GT;
 
   	super.PostBeginPlay();
-	ReplacePerkIcons();
+	// TODO: Check why this isn't working properly, alternate fix is manually in HUD Class.
+	// SetTimer(0.1, false);
   	GT = KFGameType(level.game);
   	if (GT != none)
   	{
@@ -15,34 +16,76 @@ function PostBeginPlay()
   	}
 }
 
-simulated function ReplacePerkIcons()
+function Timer()
 {
-	// Normal Icons (Red), if player is lvl < 6
-	class'KFVetSharpshooter'.default.OnHUDIcon = Texture'ColorfulHUD.Perks.Perk_Sharpshooter';
-	class'KFVetFieldMedic'.default.OnHUDIcon = Texture'ColorfulHUD.Perks.Perk_Medic';
-	class'KFVetFirebug'.default.OnHUDIcon = Texture'ColorfulHUD.Perks.Perk_Firebug';
-	class'KFVetSupportSpec'.default.OnHUDIcon = Texture'ColorfulHUD.Perks.Perk_Support';
-	class'KFVetDemolitions'.default.OnHUDIcon = Texture'ColorfulHUD.Perks.Perk_Demolition';
-	class'KFVetBerserker'.default.OnHUDIcon = Texture'ColorfulHUD.Perks.Perk_Berserk';
-	class'KFVetCommando'.default.OnHUDIcon = Texture'ColorfulHUD.Perks.Perk_Commando';
+	local KFVetSharpshooter Sharp;
+	local KFVetFieldMedic Medic;
+	local KFVetFirebug FireBug;
+	local KFVetSupportSpec Sup;
+	local KFVetDemolitions Demo;
+	local KFVetBerserker Zerk;
+	local KFVetCommando Mando;
 
-	// Max Icons (Gold), if player is lvl 6
-	class'KFVetSharpshooter'.default.OnHUDGoldIcon = Texture'ColorfulHUD.Perks.Perk_Sharpshooter';
-	class'KFVetFieldMedic'.default.OnHUDGoldIcon = Texture'ColorfulHUD.Perks.Perk_Medic';
-	class'KFVetFirebug'.default.OnHUDGoldIcon = Texture'ColorfulHUD.Perks.Perk_Firebug';
-	class'KFVetSupportSpec'.default.OnHUDGoldIcon = Texture'ColorfulHUD.Perks.Perk_Support';
-	class'KFVetDemolitions'.default.OnHUDGoldIcon = Texture'ColorfulHUD.Perks.Perk_Demolition';
-	class'KFVetBerserker'.default.OnHUDGoldIcon = Texture'ColorfulHUD.Perks.Perk_Berserk';
-	class'KFVetCommando'.default.OnHUDGoldIcon = Texture'ColorfulHUD.Perks.Perk_Commando';
+	MutLog("-----|| Replacing Perk icons for all players ||-----");
+
+	foreach DynamicActors(class'KFMod.KFVetSharpshooter', Sharp)
+        {
+	        Sharp.default.OnHUDIcon = Texture'ColorfulHUD.Perks.Perk_Sharpshooter';
+	        Sharp.default.OnHUDGoldIcon = Texture'ColorfulHUD.Perks.Perk_Sharpshooter';
+        }
+	foreach DynamicActors(class'KFMod.KFVetFieldMedic', Medic)
+        {
+	        Medic.default.OnHUDIcon = Texture'ColorfulHUD.Perks.Perk_Medic';
+	        Medic.default.OnHUDGoldIcon = Texture'ColorfulHUD.Perks.Perk_Medic';
+        }
+	foreach DynamicActors(class'KFMod.KFVetFirebug', FireBug)
+        {
+	        FireBug.default.OnHUDIcon = Texture'ColorfulHUD.Perks.Perk_Firebug';
+	        FireBug.default.OnHUDGoldIcon = Texture'ColorfulHUD.Perks.Perk_Firebug';
+        }
+	foreach DynamicActors(class'KFMod.KFVetSupportSpec', Sup)
+        {
+	        Sup.default.OnHUDIcon = Texture'ColorfulHUD.Perks.Perk_Support';
+	        Sup.default.OnHUDGoldIcon = Texture'ColorfulHUD.Perks.Perk_Support';
+        }
+	foreach DynamicActors(class'KFMod.KFVetDemolitions', Demo)
+        {
+	        Demo.default.OnHUDIcon = Texture'ColorfulHUD.Perks.Perk_Demolition';
+	        Demo.default.OnHUDGoldIcon = Texture'ColorfulHUD.Perks.Perk_Demolition';
+        }
+	foreach DynamicActors(class'KFMod.KFVetBerserker', Zerk)
+        {
+	        Zerk.default.OnHUDIcon = Texture'ColorfulHUD.Perks.Perk_Berserk';
+	        Zerk.default.OnHUDGoldIcon = Texture'ColorfulHUD.Perks.Perk_Berserk';
+        }
+	foreach DynamicActors(class'KFMod.KFVetCommando', Mando)
+        {
+	        Mando.default.OnHUDIcon = Texture'ColorfulHUD.Perks.Perk_Commando';
+	        Mando.default.OnHUDGoldIcon = Texture'ColorfulHUD.Perks.Perk_Commando';
+        }
+
+	MutLog("-----|| All Perk Icons Replaced ||-----");
+}
+
+simulated function TimeStampLog(coerce string s)
+{
+    log("["$Level.TimeSeconds$"s]" @ s, 'ColorfulHUD');
+}
+
+simulated function MutLog(string s)
+{
+    log(s, 'ColorfulHUD');
 }
 
 defaultproperties
 {
 	// Mut Vars
     GroupName="KF-ColorfulHUD"
-    FriendlyName="Colorful HUD - v1.1"
+    FriendlyName="Colorful HUD - v1.2"
     Description="Replaces the HUD with a beautiful Green, Dark, White Elements & Colorful Icons!; by Vel-San"
 
 	// Mandatory Vars
     bAddToServerPackages=True
+	bAlwaysRelevant=True
+  	RemoteRole=ROLE_SimulatedProxy
 }
