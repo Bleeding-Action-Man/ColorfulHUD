@@ -411,6 +411,378 @@ simulated function DrawWeaponName(Canvas C)
 	C.DrawText(CurWeaponName);
 }
 
+simulated function DrawHudPassA (Canvas C)
+{
+	local KFHumanPawn KFHPawn;
+	local Material TempMaterial, TempStarMaterial;
+	local int i, TempLevel;
+	local float TempX, TempY, TempSize;
+
+	KFHPawn = KFHumanPawn(PawnOwner);
+
+	DrawDoorHealthBars(C);
+
+	// Always LightHUD
+	/*if ( !bLightHud )
+	{
+		DrawSpriteWidget(C, HealthBG);
+	}*/
+
+	DrawSpriteWidget(C, HealthIcon);
+	DrawNumericWidget(C, HealthDigits, DigitsSmall);
+
+	// Always LightHUD
+	/*if ( !bLightHud )
+	{
+		DrawSpriteWidget(C, ArmorBG);
+	}*/
+
+	DrawSpriteWidget(C, ArmorIcon);
+	DrawNumericWidget(C, ArmorDigits, DigitsSmall);
+
+	if ( KFHPawn != none )
+	{
+		C.SetPos(C.ClipX * WeightBG.PosX, C.ClipY * WeightBG.PosY);
+
+		// Always LightHUD
+		/*if ( !bLightHud )
+		{
+			C.DrawTile(WeightBG.WidgetTexture, WeightBG.WidgetTexture.MaterialUSize() * WeightBG.TextureScale * 1.5 * HudCanvasScale * ResScaleX * HudScale, WeightBG.WidgetTexture.MaterialVSize() * WeightBG.TextureScale * HudCanvasScale * ResScaleY * HudScale, 0, 0, WeightBG.WidgetTexture.MaterialUSize(), WeightBG.WidgetTexture.MaterialVSize());
+		}*/
+
+		DrawSpriteWidget(C, WeightIcon);
+
+		C.Font = LoadSmallFontStatic(5);
+		C.FontScaleX = C.ClipX / 1024.0;
+		C.FontScaleY = C.FontScaleX;
+		C.SetPos(C.ClipX * WeightDigits.PosX, C.ClipY * WeightDigits.PosY);
+		C.DrawColor = WeightDigits.Tints[0];
+		C.DrawText(int(KFHPawn.CurrentWeight)$"/"$int(KFHPawn.MaxCarryWeight));
+		C.FontScaleX = 1;
+		C.FontScaleY = 1;
+	}
+
+	// Always LightHUD
+	/*if ( !bLightHud )
+	{
+		DrawSpriteWidget(C, GrenadeBG);
+	}*/
+
+	DrawSpriteWidget(C, GrenadeIcon);
+	DrawNumericWidget(C, GrenadeDigits, DigitsSmall);
+
+	if ( PawnOwner != none && PawnOwner.Weapon != none )
+	{
+		if ( Syringe(PawnOwner.Weapon) != none )
+		{
+			// Always LightHUD
+			/*if ( !bLightHud )
+			{
+				DrawSpriteWidget(C, SyringeBG);
+			}*/
+
+			DrawSpriteWidget(C, SyringeIcon);
+			DrawNumericWidget(C, SyringeDigits, DigitsSmall);
+		}
+		else
+		{
+			if ( bDisplayQuickSyringe )
+			{
+				TempSize = Level.TimeSeconds - QuickSyringeStartTime;
+				if ( TempSize < QuickSyringeDisplayTime )
+				{
+					if ( TempSize < QuickSyringeFadeInTime )
+					{
+						QuickSyringeBG.Tints[0].A = int((TempSize / QuickSyringeFadeInTime) * 255.0);
+						QuickSyringeBG.Tints[1].A = QuickSyringeBG.Tints[0].A;
+						QuickSyringeIcon.Tints[0].A = QuickSyringeBG.Tints[0].A;
+						QuickSyringeIcon.Tints[1].A = QuickSyringeBG.Tints[0].A;
+						QuickSyringeDigits.Tints[0].A = QuickSyringeBG.Tints[0].A;
+						QuickSyringeDigits.Tints[1].A = QuickSyringeBG.Tints[0].A;
+					}
+					else if ( TempSize > QuickSyringeDisplayTime - QuickSyringeFadeOutTime )
+					{
+						QuickSyringeBG.Tints[0].A = int((1.0 - ((TempSize - (QuickSyringeDisplayTime - QuickSyringeFadeOutTime)) / QuickSyringeFadeOutTime)) * 255.0);
+						QuickSyringeBG.Tints[1].A = QuickSyringeBG.Tints[0].A;
+						QuickSyringeIcon.Tints[0].A = QuickSyringeBG.Tints[0].A;
+						QuickSyringeIcon.Tints[1].A = QuickSyringeBG.Tints[0].A;
+						QuickSyringeDigits.Tints[0].A = QuickSyringeBG.Tints[0].A;
+						QuickSyringeDigits.Tints[1].A = QuickSyringeBG.Tints[0].A;
+					}
+					else
+					{
+						QuickSyringeBG.Tints[0].A = 255;
+						QuickSyringeBG.Tints[1].A = 255;
+						QuickSyringeIcon.Tints[0].A = 255;
+						QuickSyringeIcon.Tints[1].A = 255;
+						QuickSyringeDigits.Tints[0].A = 255;
+						QuickSyringeDigits.Tints[1].A = 255;
+					}
+
+					// Always LightHUD
+					/*if ( !bLightHud )
+					{
+						DrawSpriteWidget(C, QuickSyringeBG);
+					}*/
+
+					DrawSpriteWidget(C, QuickSyringeIcon);
+					DrawNumericWidget(C, QuickSyringeDigits, DigitsSmall);
+				}
+				else
+				{
+					bDisplayQuickSyringe = false;
+				}
+			}
+
+    		if ( MP7MMedicGun(PawnOwner.Weapon) != none || MP5MMedicGun(PawnOwner.Weapon) != none || M7A3MMedicGun(PawnOwner.Weapon) != none  )
+    		if ( MP7MMedicGun(PawnOwner.Weapon) != none || MP5MMedicGun(PawnOwner.Weapon) != none
+                || M7A3MMedicGun(PawnOwner.Weapon) != none || KrissMMedicGun(PawnOwner.Weapon) != none )
+    		if ( MP7MMedicGun(PawnOwner.Weapon) != none || MP5MMedicGun(PawnOwner.Weapon) != none )
+    		{
+                if( MP7MMedicGun(PawnOwner.Weapon) != none )
+                {
+                    MedicGunDigits.Value = MP7MMedicGun(PawnOwner.Weapon).ChargeBar() * 100;
+                }
+                else if( M7A3MMedicGun(PawnOwner.Weapon) != none )
+                {
+                    MedicGunDigits.Value = M7A3MMedicGun(PawnOwner.Weapon).ChargeBar() * 100;
+                }
+                else if( MP5MMedicGun(PawnOwner.Weapon) != none )
+                {
+                    MedicGunDigits.Value = MP5MMedicGun(PawnOwner.Weapon).ChargeBar() * 100;
+                }
+                else
+                {
+                    MedicGunDigits.Value = KrissMMedicGun(PawnOwner.Weapon).ChargeBar() * 100;
+                }
+
+            	if ( MedicGunDigits.Value < 50 )
+            	{
+            		MedicGunDigits.Tints[0].R = 128;
+            		MedicGunDigits.Tints[0].G = 128;
+            		MedicGunDigits.Tints[0].B = 128;
+
+            		MedicGunDigits.Tints[1] = SyringeDigits.Tints[0];
+            	}
+            	else if ( MedicGunDigits.Value < 100 )
+            	{
+            		MedicGunDigits.Tints[0].R = 192;
+            		MedicGunDigits.Tints[0].G = 96;
+            		MedicGunDigits.Tints[0].B = 96;
+
+            		MedicGunDigits.Tints[1] = SyringeDigits.Tints[0];
+            	}
+            	else
+            	{
+            		MedicGunDigits.Tints[0].R = 255;
+            		MedicGunDigits.Tints[0].G = 64;
+            		MedicGunDigits.Tints[0].B = 64;
+
+            		MedicGunDigits.Tints[1] = MedicGunDigits.Tints[0];
+            	}
+
+				// Always LightHUD
+    			/*if ( !bLightHud )
+    			{
+    				DrawSpriteWidget(C, MedicGunBG);
+    			}*/
+
+    			DrawSpriteWidget(C, MedicGunIcon);
+    			DrawNumericWidget(C, MedicGunDigits, DigitsSmall);
+    		}
+
+			if ( Welder(PawnOwner.Weapon) != none )
+			{
+				// Always LightHUD
+				/*if ( !bLightHud )
+				{
+					DrawSpriteWidget(C, WelderBG);
+				}*/
+
+				DrawSpriteWidget(C, WelderIcon);
+				DrawNumericWidget(C, WelderDigits, DigitsSmall);
+			}
+			else if ( PawnOwner.Weapon.GetAmmoClass(0) != none )
+			{
+				// Always LightHUD
+				/*if ( !bLightHud )
+				{
+					DrawSpriteWidget(C, ClipsBG);
+				}*/
+
+				if ( HuskGun(PawnOwner.Weapon) != none )
+				{
+					ClipsDigits.PosX = 0.873;
+                    DrawNumericWidget(C, ClipsDigits, DigitsSmall);
+                    ClipsDigits.PosX = default.ClipsDigits.PosX;
+				}
+				else
+				{
+				    DrawNumericWidget(C, ClipsDigits, DigitsSmall);
+				}
+
+				if ( LAW(PawnOwner.Weapon) != none )
+				{
+					DrawSpriteWidget(C, LawRocketIcon);
+				}
+				else if ( Crossbow(PawnOwner.Weapon) != none )
+				{
+					DrawSpriteWidget(C, ArrowheadIcon);
+				}
+				else if ( CrossBuzzSaw(PawnOwner.Weapon) != none )
+				{
+					DrawSpriteWidget(C, SawAmmoIcon);
+				}
+				else if ( PipeBombExplosive(PawnOwner.Weapon) != none )
+				{
+                    DrawSpriteWidget(C, PipeBombIcon);
+				}
+				else if ( M79GrenadeLauncher(PawnOwner.Weapon) != none || SPGrenadeLauncher(PawnOwner.Weapon) != none )
+				{
+					DrawSpriteWidget(C, M79Icon);
+				}
+				else if ( HuskGun(PawnOwner.Weapon) != none )
+				{
+					DrawSpriteWidget(C, HuskAmmoIcon);
+				}
+				else
+				{
+					// Always LightHUD
+					/*if ( !bLightHud )
+					{
+						DrawSpriteWidget(C, BulletsInClipBG);
+					}*/
+
+					DrawNumericWidget(C, BulletsInClipDigits, DigitsSmall);
+
+					if ( Flamethrower(PawnOwner.Weapon) != none )
+					{
+						DrawSpriteWidget(C, FlameIcon);
+						DrawSpriteWidget(C, FlameTankIcon);
+					}
+				    else if ( Shotgun(PawnOwner.Weapon) != none || BoomStick(PawnOwner.Weapon) != none || Winchester(PawnOwner.Weapon) != none
+                        || BenelliShotgun(PawnOwner.Weapon) != none )
+				    {
+					    DrawSpriteWidget(C, SingleBulletIcon);
+						DrawSpriteWidget(C, BulletsInClipIcon);
+				    }
+					else if ( ZEDGun(PawnOwner.Weapon) != none )
+					{
+						DrawSpriteWidget(C, ClipsIcon);
+						DrawSpriteWidget(C, ZedAmmoIcon);
+					}
+					else
+					{
+						DrawSpriteWidget(C, ClipsIcon);
+						DrawSpriteWidget(C, BulletsInClipIcon);
+					}
+				}
+
+				if ( KFWeapon(PawnOwner.Weapon) != none && KFWeapon(PawnOwner.Weapon).bTorchEnabled )
+				{
+					// Always LightHUD
+					/*if ( !bLightHud )
+					{
+						DrawSpriteWidget(C, FlashlightBG);
+					}*/
+
+					DrawNumericWidget(C, FlashlightDigits, DigitsSmall);
+
+					if ( KFWeapon(PawnOwner.Weapon).FlashLight != none && KFWeapon(PawnOwner.Weapon).FlashLight.bHasLight )
+					{
+						DrawSpriteWidget(C, FlashlightIcon);
+					}
+					else
+					{
+						DrawSpriteWidget(C, FlashlightOffIcon);
+					}
+				}
+			}
+
+            // Secondary ammo
+            if ( KFWeapon(PawnOwner.Weapon) != none && KFWeapon(PawnOwner.Weapon).bHasSecondaryAmmo )
+			{
+				// Always LightHUD
+				/*if ( !bLightHud )
+				{
+					DrawSpriteWidget(C, SecondaryClipsBG);
+				}*/
+
+				DrawNumericWidget(C, SecondaryClipsDigits, DigitsSmall);
+				DrawSpriteWidget(C, SecondaryClipsIcon);
+			}
+		}
+	}
+
+	if ( KFPRI != none && KFPRI.ClientVeteranSkill != none )
+	{
+		KFPRI.ClientVeteranSkill.Static.SpecialHUDInfo(KFPRI, C);
+	}
+
+	if ( KFGameReplicationInfo(PlayerOwner.GameReplicationInfo) == none || KFGameReplicationInfo(PlayerOwner.GameReplicationInfo).bHUDShowCash )
+	{
+		DrawSpriteWidget(C, CashIcon);
+		DrawNumericWidget(C, CashDigits, DigitsBig);
+	}
+
+	if ( KFPRI != none && KFPRI.ClientVeteranSkill != none && KFPRI.ClientVeteranSkill.default.OnHUDIcon != none )
+	{
+		if ( KFPRI.ClientVeteranSkillLevel > 5 )
+		{
+			TempMaterial = KFPRI.ClientVeteranSkill.default.OnHUDGoldIcon;
+			TempStarMaterial = VetStarGoldMaterial;
+			TempLevel = KFPRI.ClientVeteranSkillLevel - 5;
+			C.SetDrawColor(255, 255, 255, 192);
+		}
+		else
+		{
+			TempMaterial = KFPRI.ClientVeteranSkill.default.OnHUDIcon;
+			TempStarMaterial = VetStarMaterial;
+			TempLevel = KFPRI.ClientVeteranSkillLevel;
+		}
+
+		TempSize = FMin((36 * VeterancyMatScaleFactor * 1.4) * (float(C.SizeX) / 1024.f),36 * VeterancyMatScaleFactor * 1.4) ;
+		VetStarSize = FMin(default.VetStarSize * (float(C.SizeX) / 1024.f),default.VetStarSize);
+		TempX = C.ClipX * 0.007;
+		TempY = C.ClipY * 0.93 - TempSize;
+
+		C.SetPos(TempX, TempY);
+		C.DrawTile(TempMaterial, TempSize, TempSize, 0, 0, TempMaterial.MaterialUSize(), TempMaterial.MaterialVSize());
+
+		TempX += (TempSize - VetStarSize);
+		TempY += (TempSize - (2.0 * VetStarSize));
+
+		for ( i = 0; i < TempLevel; i++ )
+		{
+			C.SetPos(TempX, TempY);
+			C.DrawTile(TempStarMaterial, VetStarSize, VetStarSize, 0, 0, TempStarMaterial.MaterialUSize(), TempStarMaterial.MaterialVSize());
+
+			TempY -= VetStarSize;
+		}
+	}
+
+	if ( Level.TimeSeconds - LastVoiceGainTime < 0.333 )
+	{
+		if ( !bUsingVOIP && PlayerOwner != None && PlayerOwner.ActiveRoom != None &&
+			 PlayerOwner.ActiveRoom.GetTitle() == "Team" )
+		{
+			bUsingVOIP = true;
+			PlayerOwner.NotifySpeakingInTeamChannel();
+		}
+
+		DisplayVoiceGain(C);
+	}
+	else
+	{
+		bUsingVOIP = false;
+	}
+
+	if ( bDisplayInventory || bInventoryFadingOut )
+	{
+		DrawInventory(C);
+	}
+}
+
 defaultproperties
 {
 	// Health
@@ -463,17 +835,17 @@ defaultproperties
 	// Zed Gun
     ZEDAmmoIcon=(WidgetTexture=Texture'ColorfulHUD.HUD.ZED_Hud_Bolt',RenderStyle=STY_Alpha,TextureCoords=(X2=64,Y2=64),TextureScale=0.28,DrawPivot=DP_UpperLeft,PosX=0.781,PosY=0.945,ScaleMode=SM_Right,Scale=1.000000,Tints[0]=(B=255,G=255,R=255,A=255),Tints[1]=(B=255,G=255,R=255,A=255))
 	// All Other Weapons
-	ClipsIcon=(WidgetTexture=Texture'ColorfulHUD.HUD.Hud_Ammo_Clip',RenderStyle=STY_Alpha,TextureCoords=(X2=64,Y2=64),TextureScale=0.28,DrawPivot=DP_UpperLeft,PosX=0.853,PosY=0.943,ScaleMode=SM_Right,Scale=1.000000,Tints[0]=(B=255,G=255,R=255,A=255),Tints[1]=(B=255,G=255,R=255,A=255))
+	ClipsIcon=(WidgetTexture=Texture'ColorfulHUD.HUD.Hud_Ammo_Clip',RenderStyle=STY_Alpha,TextureCoords=(X2=64,Y2=64),TextureScale=0.28,DrawPivot=DP_UpperLeft,PosX=0.850,PosY=0.943,ScaleMode=SM_Right,Scale=1.000000,Tints[0]=(B=255,G=255,R=255,A=255),Tints[1]=(B=255,G=255,R=255,A=255))
 
 	// Bullets(All Weapons except LAW, Crossbow, Shotgun, Boomstick, Winchester, Welder and Syringe)
 	BulletsInClipBG=(WidgetTexture=Texture'ColorfulHUD.HUD.Hud_Box_128x64',RenderStyle=STY_Alpha,TextureCoords=(X2=128,Y2=64),TextureScale=0.35,DrawPivot=DP_UpperLeft,PosX=0.775,PosY=0.935,ScaleMode=SM_Right,Scale=1.000000,Tints[0]=(B=255,G=255,R=255,A=255),Tints[1]=(B=255,G=255,R=255,A=255))
-	BulletsInClipIcon=(WidgetTexture=Texture'ColorfulHUD.HUD.Hud_Bullets',RenderStyle=STY_Alpha,TextureCoords=(X2=64,Y2=64),TextureScale=0.28,DrawPivot=DP_UpperLeft,PosX=0.781,PosY=0.945,ScaleMode=SM_Right,Scale=1.000000,Tints[0]=(B=255,G=255,R=255,A=255),Tints[1]=(B=255,G=255,R=255,A=255))
+	BulletsInClipIcon=(WidgetTexture=Texture'ColorfulHUD.HUD.Hud_Bullets',RenderStyle=STY_Alpha,TextureCoords=(X2=64,Y2=64),TextureScale=0.25,DrawPivot=DP_UpperLeft,PosX=0.779,PosY=0.945,ScaleMode=SM_Right,Scale=1.000000,Tints[0]=(B=255,G=255,R=255,A=255),Tints[1]=(B=255,G=255,R=255,A=255))
 	BulletsInClipDigits=(RenderStyle=STY_Alpha,TextureScale=0.30,DrawPivot=DP_UpperLeft,PosX=0.807,PosY=0.956,Tints[0]=(R=255,G=255,B=255,A=255),Tints[1]=(R=255,G=255,B=255,A=255))
 
 	// Flashlight(9mm and Shotgun)
 	FlashlightBG=(WidgetTexture=Texture'ColorfulHUD.HUD.Hud_Box_128x64',RenderStyle=STY_Alpha,TextureCoords=(X2=128,Y2=64),TextureScale=0.35,DrawPivot=DP_UpperLeft,PosX=0.705,PosY=0.935,Scale=1.000000,Tints[0]=(B=255,G=255,R=255,A=255),Tints[1]=(B=255,G=255,R=255,A=255))
-	FlashlightIcon=(WidgetTexture=Texture'ColorfulHUD.HUD.Hud_Flashlight',RenderStyle=STY_Alpha,TextureCoords=(X2=64,Y2=64),TextureScale=0.28,DrawPivot=DP_UpperLeft,PosX=0.704,PosY=0.938,Scale=1.000000,Tints[0]=(B=255,G=255,R=255,A=255),Tints[1]=(B=255,G=255,R=255,A=255))
-	FlashlightOffIcon=(WidgetTexture=Texture'ColorfulHUD.HUD.Hud_Flashlight_Off',RenderStyle=STY_Alpha,TextureCoords=(X2=64,Y2=64),TextureScale=0.28,DrawPivot=DP_UpperLeft,PosX=0.704,PosY=0.938,Scale=1.000000,Tints[0]=(B=255,G=255,R=255,A=255),Tints[1]=(B=255,G=255,R=255,A=255))
+	FlashlightIcon=(WidgetTexture=Texture'ColorfulHUD.HUD.Hud_Flashlight',RenderStyle=STY_Alpha,TextureCoords=(X2=64,Y2=64),TextureScale=0.29,DrawPivot=DP_UpperLeft,PosX=0.704,PosY=0.938,Scale=1.000000,Tints[0]=(B=255,G=255,R=255,A=255),Tints[1]=(B=255,G=255,R=255,A=255))
+	FlashlightOffIcon=(WidgetTexture=Texture'ColorfulHUD.HUD.Hud_Flashlight_Off',RenderStyle=STY_Alpha,TextureCoords=(X2=64,Y2=64),TextureScale=0.29,DrawPivot=DP_UpperLeft,PosX=0.704,PosY=0.938,Scale=1.000000,Tints[0]=(B=255,G=255,R=255,A=255),Tints[1]=(B=255,G=255,R=255,A=255))
 	FlashlightDigits=(RenderStyle=STY_Alpha,TextureScale=0.30,DrawPivot=DP_UpperLeft,PosX=0.731,PosY=0.956,Tints[0]=(R=255,G=255,B=255,A=255),Tints[1]=(R=255,G=255,B=255,A=255))
 
 	// Welder only
@@ -483,7 +855,7 @@ defaultproperties
 
 	// Syringe only
 	SyringeBG=(WidgetTexture=Texture'ColorfulHUD.HUD.Hud_Box_128x64',RenderStyle=STY_Alpha,TextureCoords=(X2=128,Y2=64),TextureScale=0.35,DrawPivot=DP_UpperLeft,PosX=0.845,PosY=0.935,Scale=1.000000,Tints[0]=(B=255,G=255,R=255,A=255),Tints[1]=(B=255,G=255,R=255,A=255))
-	SyringeIcon=(WidgetTexture=Texture'ColorfulHUD.HUD.Hud_Syringe',RenderStyle=STY_Alpha,TextureCoords=(X2=64,Y2=64),TextureScale=0.28,DrawPivot=DP_UpperLeft,PosX=0.85,PosY=0.945,Scale=1.000000,Tints[0]=(B=255,G=255,R=255,A=255),Tints[1]=(B=255,G=255,R=255,A=255))
+	SyringeIcon=(WidgetTexture=Texture'ColorfulHUD.HUD.Hud_Syringe',RenderStyle=STY_Alpha,TextureCoords=(X2=64,Y2=64),TextureScale=0.28,DrawPivot=DP_UpperLeft,PosX=0.847,PosY=0.945,Scale=1.000000,Tints[0]=(B=255,G=255,R=255,A=255),Tints[1]=(B=255,G=255,R=255,A=255))
 	SyringeDigits=(RenderStyle=STY_Alpha,TextureScale=0.30,DrawPivot=DP_UpperLeft,PosX=0.875,PosY=0.956,Tints[0]=(R=255,G=255,B=255,A=255),Tints[1]=(R=255,G=255,B=255,A=255))
 
 	// Medic Gun only
