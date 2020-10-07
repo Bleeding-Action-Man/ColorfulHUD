@@ -582,7 +582,7 @@ simulated function DrawHudPassA (Canvas C)
 		C.FontScaleY = C.FontScaleX;
 		if (int(KFHPawn.CurrentWeight) < 10)
 		{
-			C.SetPos(C.ClipX * WeightDigits.PosX + 40.0, C.ClipY * WeightDigits.PosY - 10);
+			C.SetPos(C.ClipX * WeightDigits.PosX + 42.0, C.ClipY * WeightDigits.PosY - 10);
 		}
 		else
 		{
@@ -861,14 +861,82 @@ simulated function DrawHudPassA (Canvas C)
 	{
 		if ( KFPRI.ClientVeteranSkillLevel > 5 )
 		{
-			TempMaterial = KFPRI.ClientVeteranSkill.default.OnHUDGoldIcon;
+			// Override Perk Icons; Smart Solution with minimum effort!
+			switch (KFPRI.ClientVeteranSkill.Default.VeterancyName)
+			{
+				case "Demolitions":
+					TempMaterial = Texture'ColorfulHUD.Perks.Perk_Demolition';
+					KFPRI.ClientVeteranSkill.default.OnHUDGoldIcon = Texture'ColorfulHUD.Perks.Perk_Demolition';
+					break;
+				case "Support Specialist":
+					TempMaterial = Texture'ColorfulHUD.Perks.Perk_Support';
+					KFPRI.ClientVeteranSkill.default.OnHUDGoldIcon = Texture'ColorfulHUD.Perks.Perk_Support';
+					break;
+				case "Sharpshooter":
+					TempMaterial = Texture'ColorfulHUD.Perks.Perk_Sharpshooter';
+					KFPRI.ClientVeteranSkill.default.OnHUDGoldIcon = Texture'ColorfulHUD.Perks.Perk_Sharpshooter';
+					break;
+				case "Firebug":
+					TempMaterial = Texture'ColorfulHUD.Perks.Perk_Firebug';
+					KFPRI.ClientVeteranSkill.default.OnHUDGoldIcon = Texture'ColorfulHUD.Perks.Perk_Firebug';
+					break;
+				case "Field Medic":
+					TempMaterial = Texture'ColorfulHUD.Perks.Perk_Medic';
+					KFPRI.ClientVeteranSkill.default.OnHUDGoldIcon = Texture'ColorfulHUD.Perks.Perk_Medic';
+					break;
+				case "Commando":
+					TempMaterial = Texture'ColorfulHUD.Perks.Perk_Commando';
+					KFPRI.ClientVeteranSkill.default.OnHUDGoldIcon = Texture'ColorfulHUD.Perks.Perk_Commando';
+					break;
+				case "Berserker":
+					TempMaterial = Texture'ColorfulHUD.Perks.Perk_Berserk';
+					KFPRI.ClientVeteranSkill.default.OnHUDGoldIcon = Texture'ColorfulHUD.Perks.Perk_Berserk';
+					break;
+				default:
+					TempMaterial = KFPRI.ClientVeteranSkill.default.OnHUDGoldIcon;
+					break;
+			}
 			TempStarMaterial = VetStarGoldMaterial;
 			TempLevel = KFPRI.ClientVeteranSkillLevel - 5;
 			C.SetDrawColor(255, 255, 255, 192);
 		}
 		else
 		{
-			TempMaterial = KFPRI.ClientVeteranSkill.default.OnHUDIcon;
+			// Override Perk Icons; Smart Solution with minimum effort!
+			switch (KFPRI.ClientVeteranSkill.Default.VeterancyName)
+			{
+				case "Demolitions":
+					TempMaterial = Texture'ColorfulHUD.Perks.Perk_Demolition';
+					KFPRI.ClientVeteranSkill.default.OnHUDIcon = Texture'ColorfulHUD.Perks.Perk_Demolition';
+					break;
+				case "Support Specialist":
+					TempMaterial = Texture'ColorfulHUD.Perks.Perk_Support';
+					KFPRI.ClientVeteranSkill.default.OnHUDIcon = Texture'ColorfulHUD.Perks.Perk_Support';
+					break;
+				case "Sharpshooter":
+					TempMaterial = Texture'ColorfulHUD.Perks.Perk_Sharpshooter';
+					KFPRI.ClientVeteranSkill.default.OnHUDIcon = Texture'ColorfulHUD.Perks.Perk_Sharpshooter';
+					break;
+				case "Firebug":
+					TempMaterial = Texture'ColorfulHUD.Perks.Perk_Firebug';
+					KFPRI.ClientVeteranSkill.default.OnHUDIcon = Texture'ColorfulHUD.Perks.Perk_Firebug';
+					break;
+				case "Field Medic":
+					TempMaterial = Texture'ColorfulHUD.Perks.Perk_Medic';
+					KFPRI.ClientVeteranSkill.default.OnHUDIcon = Texture'ColorfulHUD.Perks.Perk_Medic';
+					break;
+				case "Commando":
+					TempMaterial = Texture'ColorfulHUD.Perks.Perk_Commando';
+					KFPRI.ClientVeteranSkill.default.OnHUDIcon = Texture'ColorfulHUD.Perks.Perk_Commando';
+					break;
+				case "Berserker":
+					TempMaterial = Texture'ColorfulHUD.Perks.Perk_Berserk';
+					KFPRI.ClientVeteranSkill.default.OnHUDIcon = Texture'ColorfulHUD.Perks.Perk_Berserk';
+					break;
+				default:
+					TempMaterial = KFPRI.ClientVeteranSkill.default.OnHUDIcon;
+					break;
+			}
 			TempStarMaterial = VetStarMaterial;
 			TempLevel = KFPRI.ClientVeteranSkillLevel;
 		}
@@ -886,7 +954,7 @@ simulated function DrawHudPassA (Canvas C)
 
 		for ( i = 0; i < TempLevel; i++ )
 		{
-			C.SetPos(TempX, TempY);
+			C.SetPos(TempX + 20, TempY);
 			C.DrawTile(TempStarMaterial, VetStarSize, VetStarSize, 0, 0, TempStarMaterial.MaterialUSize(), TempStarMaterial.MaterialVSize());
 
 			TempY -= VetStarSize;
@@ -920,6 +988,7 @@ defaultproperties
 
 	// Colors
 	Teal = (R=60,G=179,B=113,A=255)
+
 	// Numbers(kinda like fonts)
 	DigitsSmall=(DigitTexture=Texture'ColorfulHUD.TextElements.Hud_numbers',TextureCoords[0]=(X1=8,Y1=6,X2=36,Y2=38),TextureCoords[1]=(X1=50,Y1=6,X2=68,Y2=38),TextureCoords[2]=(X1=83,Y1=6,X2=113,Y2=38),TextureCoords[3]=(X1=129,Y1=6,X2=157,Y2=38),TextureCoords[4]=(X1=169,Y1=6,X2=197,Y2=38),TextureCoords[5]=(X1=206,Y1=6,X2=235,Y2=38),TextureCoords[6]=(X1=241,Y1=6,X2=269,Y2=38),TextureCoords[7]=(X1=285,Y1=6,X2=315,Y2=38),TextureCoords[8]=(X1=318,Y1=6,X2=348,Y2=38),TextureCoords[9]=(X1=357,Y1=6,X2=388,Y2=38),TextureCoords[10]=(X1=390,Y1=6,X2=428,Y2=38))
 	DigitsBig=(DigitTexture=Texture'ColorfulHUD.TextElements.Hud_numbers',TextureCoords[0]=(X1=8,Y1=6,X2=36,Y2=38),TextureCoords[1]=(X1=50,Y1=6,X2=68,Y2=38),TextureCoords[2]=(X1=83,Y1=6,X2=113,Y2=38),TextureCoords[3]=(X1=129,Y1=6,X2=157,Y2=38),TextureCoords[4]=(X1=169,Y1=6,X2=197,Y2=38),TextureCoords[5]=(X1=206,Y1=6,X2=235,Y2=38),TextureCoords[6]=(X1=241,Y1=6,X2=269,Y2=38),TextureCoords[7]=(X1=285,Y1=6,X2=315,Y2=38),TextureCoords[8]=(X1=318,Y1=6,X2=348,Y2=38),TextureCoords[9]=(X1=357,Y1=6,X2=388,Y2=38),TextureCoords[10]=(X1=390,Y1=6,X2=428,Y2=38))
@@ -1005,11 +1074,11 @@ defaultproperties
 
 	// Temp Syringe Display
 	QuickSyringeBG=(WidgetTexture=Texture'ColorfulHUD.HUD.Hud_Box_128x64',RenderStyle=STY_Alpha,TextureCoords=(X2=128,Y2=64),TextureScale=0.35,DrawPivot=DP_UpperLeft,PosX=0.47,PosY=0.935,Scale=1.000000,Tints[0]=(B=255,G=255,R=255,A=255),Tints[1]=(B=255,G=255,R=255,A=255))
-	QuickSyringeIcon=(WidgetTexture=Texture'ColorfulHUD.HUD.Hud_Syringe',RenderStyle=STY_Alpha,TextureCoords=(X2=64,Y2=64),TextureScale=0.29,DrawPivot=DP_UpperLeft,PosX=0.472,PosY=0.945,Scale=1.000000,Tints[0]=(B=255,G=255,R=255,A=255),Tints[1]=(B=255,G=255,R=255,A=255))
+	QuickSyringeIcon=(WidgetTexture=Texture'ColorfulHUD.HUD.Hud_Syringe',RenderStyle=STY_Alpha,TextureCoords=(X2=64,Y2=64),TextureScale=0.29,DrawPivot=DP_UpperLeft,PosX=0.469,PosY=0.945,Scale=1.000000,Tints[0]=(B=255,G=255,R=255,A=255),Tints[1]=(B=255,G=255,R=255,A=255))
 	QuickSyringeDigits=(RenderStyle=STY_Alpha,TextureScale=0.30,DrawPivot=DP_UpperLeft,PosX=0.50,PosY=0.956,Tints[0]=(R=255,G=255,B=255,A=255),Tints[1]=(R=255,G=255,B=255,A=255))
 
 	// Cash
-	CashIcon=(WidgetTexture=Texture'ColorfulHUD.HUD.Hud_Pound_Symbol',RenderStyle=STY_Alpha,TextureCoords=(X2=64,Y2=64),TextureScale=0.37,DrawPivot=DP_UpperLeft,PosX=0.84,PosY=0.86,Scale=1.000000,Tints[0]=(B=255,G=255,R=255,A=255),Tints[1]=(B=255,G=255,R=255,A=255))
+	CashIcon=(WidgetTexture=Texture'ColorfulHUD.HUD.Hud_Pound_Symbol',RenderStyle=STY_Alpha,TextureCoords=(X2=64,Y2=64),TextureScale=0.38,DrawPivot=DP_UpperLeft,PosX=0.837,PosY=0.86,Scale=1.000000,Tints[0]=(B=255,G=255,R=255,A=255),Tints[1]=(B=255,G=255,R=255,A=255))
 	CashDigits=(RenderStyle=STY_Alpha,TextureScale=0.50,DrawPivot=DP_UpperLeft,PosX=0.882,PosY=0.867,Tints[0]=(R=255,G=255,B=255,A=255),Tints[1]=(R=255,G=255,B=255,A=255))
 
 	// Veterancy Stars
