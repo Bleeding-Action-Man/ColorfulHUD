@@ -20,12 +20,20 @@ Elements Replaced:
 - Inventory Overlay
 [/code]
 
+Elements Fixed:
+
+[code]
+- All Text alignments
+- All Icons aligned on same Y-Axis
+- Fix for Weight numbers being so wonky from TWI code (Made them as Numeric Widgets)
+[/code]
+
 Anything else that I've forgot about :D
 
 Elements that haven't been changed yet:
 
 [code]
-- Perk Icons
+[strike]- Perk Icons[/strike] - Added as of v1.1 !!
 [/code]
 
 [H1][b][u]Notes[/u][/b][/H1]
@@ -65,6 +73,6 @@ For Devs:
 
 [H1][b][u]Manual Download Links (Recommended)[/u][/b][/H1]
 
-You can find it under 'Not Whitelisted' folder named 'KF-ColorfulHUD-v1.0'
+You can find it under 'Not Whitelisted' folder named 'KF-ColorfulHUD-v1.1'
 
 MEGA Link: https://mega DOT nz/folder/YDoEmKiC#s6FGAtgh40-TvB4bHsLaMQ

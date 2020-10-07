@@ -5,6 +5,7 @@ Replaces the HUD with a beautiful, simple: Green, Dark &amp; White HUD; [Server-
 Elements Replaced:
 
 ``` text
+- Perk Icons
 - All Ammo Types
 - HP
 - Armor
@@ -23,11 +24,5 @@ Elements Replaced:
 ```
 
 Anything else that i've forgot about :D
-
-Elements that haven't been changed yet:
-
-``` text
-- Perk Icons
-```
 
 [Steam-Workshop](https://steamcommunity.com/id/Vel-San/myworkshopfiles/)

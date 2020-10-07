@@ -17,7 +17,6 @@ function PostBeginPlay()
 
 simulated function ReplacePerkIcons()
 {
-	// TODO: Replace Perk Icons on StartUp
 	// Normal Icons (Red), if player is lvl < 6
 	class'KFVetSharpshooter'.default.OnHUDIcon = Texture'ColorfulHUD.Perks.Perk_Sharpshooter';
 	class'KFVetFieldMedic'.default.OnHUDIcon = Texture'ColorfulHUD.Perks.Perk_Medic';
