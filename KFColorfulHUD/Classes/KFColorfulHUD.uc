@@ -1,10 +1,13 @@
 class KFColorfulHUD extends Mutator;
 
+#exec OBJ LOAD FILE=ColorfulHUD.utx
+
 function PostBeginPlay()
 {
   	local KFGameType GT;
 
   	super.PostBeginPlay();
+	ReplacePerkIcons();
   	GT = KFGameType(level.game);
   	if (GT != none)
   	{
@@ -15,6 +18,23 @@ function PostBeginPlay()
 simulated function ReplacePerkIcons()
 {
 	// TODO: Replace Perk Icons on StartUp
+	// Normal Icons (Red), if player is lvl < 6
+	class'KFVetSharpshooter'.default.OnHUDIcon = Texture'ColorfulHUD.Perks.Perk_Sharpshooter';
+	class'KFVetFieldMedic'.default.OnHUDIcon = Texture'ColorfulHUD.Perks.Perk_Medic';
+	class'KFVetFirebug'.default.OnHUDIcon = Texture'ColorfulHUD.Perks.Perk_Firebug';
+	class'KFVetSupportSpec'.default.OnHUDIcon = Texture'ColorfulHUD.Perks.Perk_Support';
+	class'KFVetDemolitions'.default.OnHUDIcon = Texture'ColorfulHUD.Perks.Perk_Demolition';
+	class'KFVetBerserker'.default.OnHUDIcon = Texture'ColorfulHUD.Perks.Perk_Berserk';
+	class'KFVetCommando'.default.OnHUDIcon = Texture'ColorfulHUD.Perks.Perk_Commando';
+
+	// Max Icons (Gold), if player is lvl 6
+	class'KFVetSharpshooter'.default.OnHUDGoldIcon = Texture'ColorfulHUD.Perks.Perk_Sharpshooter';
+	class'KFVetFieldMedic'.default.OnHUDGoldIcon = Texture'ColorfulHUD.Perks.Perk_Medic';
+	class'KFVetFirebug'.default.OnHUDGoldIcon = Texture'ColorfulHUD.Perks.Perk_Firebug';
+	class'KFVetSupportSpec'.default.OnHUDGoldIcon = Texture'ColorfulHUD.Perks.Perk_Support';
+	class'KFVetDemolitions'.default.OnHUDGoldIcon = Texture'ColorfulHUD.Perks.Perk_Demolition';
+	class'KFVetBerserker'.default.OnHUDGoldIcon = Texture'ColorfulHUD.Perks.Perk_Berserk';
+	class'KFVetCommando'.default.OnHUDGoldIcon = Texture'ColorfulHUD.Perks.Perk_Commando';
 }
 
 defaultproperties
