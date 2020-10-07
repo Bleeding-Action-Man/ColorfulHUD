@@ -416,12 +416,12 @@ defaultproperties
 	// Health
 	HealthBG=(WidgetTexture=Texture'ColorfulHUD.HUD.Hud_Box_128x64',RenderStyle=STY_Alpha,TextureCoords=(X2=128,Y2=64),TextureScale=0.35,DrawPivot=DP_UpperLeft,PosX=0.015,PosY=0.935,ScaleMode=SM_Right,Scale=1.000000,Tints[0]=(B=255,G=255,R=255,A=128),Tints[1]=(B=255,G=255,R=255,A=128))
 	HealthIcon=(WidgetTexture=Texture'ColorfulHUD.HUD.Hud_Medical_Cross',RenderStyle=STY_Alpha,TextureCoords=(X2=64,Y2=64),TextureScale=0.28,DrawPivot=DP_UpperLeft,PosX=0.021,PosY=0.947,ScaleMode=SM_Right,Scale=1.000000,Tints[0]=(B=255,G=255,R=255,A=255),Tints[1]=(B=255,G=255,R=255,A=255))
-	HealthDigits=(RenderStyle=STY_Alpha,TextureScale=0.30,DrawPivot=DP_UpperLeft,PosX=0.0425,PosY=0.95,Tints[0]=(R=255,G=255,B=255,A=255),Tints[1]=(R=255,G=255,B=255,A=255))
+	HealthDigits=(RenderStyle=STY_Alpha,TextureScale=0.30,DrawPivot=DP_UpperLeft,PosX=0.053,PosY=0.956,Tints[0]=(R=255,G=255,B=255,A=255),Tints[1]=(R=255,G=255,B=255,A=255))
 
 	// Armor
 	ArmorBG=(WidgetTexture=Texture'ColorfulHUD.HUD.Hud_Box_128x64',RenderStyle=STY_Alpha,TextureCoords=(X2=128,Y2=64),TextureScale=0.35,DrawPivot=DP_UpperLeft,PosX=0.085,PosY=0.935,ScaleMode=SM_Right,Scale=1.000000,Tints[0]=(B=255,G=255,R=255,A=128),Tints[1]=(B=255,G=255,R=255,A=128))
 	ArmorIcon=(WidgetTexture=Texture'ColorfulHUD.HUD.Hud_Shield',RenderStyle=STY_Alpha,TextureCoords=(X2=64,Y2=64),TextureScale=0.28,DrawPivot=DP_UpperLeft,PosX=0.09,PosY=0.945,ScaleMode=SM_Right,Scale=1.000000,Tints[0]=(B=255,G=255,R=255,A=255),Tints[1]=(B=255,G=255,R=255,A=255))
-	ArmorDigits=(RenderStyle=STY_Alpha,TextureScale=0.30,DrawPivot=DP_UpperLeft,PosX=0.115,PosY=0.95,Tints[0]=(R=255,G=255,B=255,A=255),Tints[1]=(R=255,G=255,B=255,A=255))
+	ArmorDigits=(RenderStyle=STY_Alpha,TextureScale=0.30,DrawPivot=DP_UpperLeft,PosX=0.122,PosY=0.956,Tints[0]=(R=255,G=255,B=255,A=255),Tints[1]=(R=255,G=255,B=255,A=255))
 
 	// Weight
 	WeightBG=(WidgetTexture=Texture'ColorfulHUD.HUD.Hud_Box_128x64',RenderStyle=STY_Alpha,TextureCoords=(X2=256,Y2=64),TextureScale=0.35,DrawPivot=DP_UpperLeft,PosX=0.155,PosY=0.935,ScaleMode=SM_Right,Scale=1.000000,Tints[0]=(B=255,G=255,R=255,A=128),Tints[1]=(B=255,G=255,R=255,A=128))
