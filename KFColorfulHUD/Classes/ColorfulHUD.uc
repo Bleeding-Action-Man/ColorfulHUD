@@ -3,6 +3,126 @@ class ColorfulHUD extends HUDKillingFloor;
 // Load Custom Texture Pack
 #exec OBJ LOAD FILE=ColorfulHUD.utx
 
+var() NumericWidget WeightDigitsMax;
+var() color Teal;
+
+simulated function SetHUDAlpha()
+{
+	HealthBG.Tints[0].A = KFHUDAlpha;
+	HealthBG.Tints[1].A = KFHUDAlpha;
+	HealthIcon.Tints[0].A = KFHUDAlpha;
+	HealthIcon.Tints[1].A = KFHUDAlpha;
+	HealthDigits.Tints[0].A = KFHUDAlpha;
+	HealthDigits.Tints[1].A = KFHUDAlpha;
+
+	ArmorBG.Tints[0].A = KFHUDAlpha;
+	ArmorBG.Tints[1].A = KFHUDAlpha;
+	ArmorIcon.Tints[0].A = KFHUDAlpha;
+	ArmorIcon.Tints[1].A = KFHUDAlpha;
+	ArmorDigits.Tints[0].A = KFHUDAlpha;
+	ArmorDigits.Tints[1].A = KFHUDAlpha;
+
+	WeightBG.Tints[0].A = KFHUDAlpha;
+	WeightBG.Tints[1].A = KFHUDAlpha;
+	WeightIcon.Tints[0].A = KFHUDAlpha;
+	WeightIcon.Tints[1].A = KFHUDAlpha;
+	WeightDigits.Tints[0].A = KFHUDAlpha;
+	WeightDigits.Tints[1].A = KFHUDAlpha;
+	WeightDigitsMax.Tints[0].A = KFHUDAlpha;
+	WeightDigitsMax.Tints[1].A = KFHUDAlpha;
+
+	GrenadeBG.Tints[0].A = KFHUDAlpha;
+	GrenadeBG.Tints[1].A = KFHUDAlpha;
+	GrenadeIcon.Tints[0].A = KFHUDAlpha;
+	GrenadeIcon.Tints[1].A = KFHUDAlpha;
+	GrenadeDigits.Tints[0].A = KFHUDAlpha;
+	GrenadeDigits.Tints[1].A = KFHUDAlpha;
+
+	ClipsBG.Tints[0].A = KFHUDAlpha;
+	ClipsBG.Tints[1].A = KFHUDAlpha;
+	ClipsIcon.Tints[0].A = KFHUDAlpha;
+	ClipsIcon.Tints[1].A = KFHUDAlpha;
+	ClipsDigits.Tints[0].A = KFHUDAlpha;
+	ClipsDigits.Tints[1].A = KFHUDAlpha;
+
+	SecondaryClipsBG.Tints[0].A = KFHUDAlpha;
+	SecondaryClipsBG.Tints[1].A = KFHUDAlpha;
+	SecondaryClipsIcon.Tints[0].A = KFHUDAlpha;
+	SecondaryClipsIcon.Tints[1].A = KFHUDAlpha;
+	SecondaryClipsDigits.Tints[0].A = KFHUDAlpha;
+	SecondaryClipsDigits.Tints[1].A = KFHUDAlpha;
+
+	BulletsInClipBG.Tints[0].A = KFHUDAlpha;
+	BulletsInClipBG.Tints[1].A = KFHUDAlpha;
+	BulletsInClipIcon.Tints[0].A = KFHUDAlpha;
+	BulletsInClipIcon.Tints[1].A = KFHUDAlpha;
+	BulletsInClipDigits.Tints[0].A = KFHUDAlpha;
+	BulletsInClipDigits.Tints[1].A = KFHUDAlpha;
+
+	M79Icon.Tints[0].A = KFHUDAlpha;
+	M79Icon.Tints[1].A = KFHUDAlpha;
+	HuskAmmoIcon.Tints[0].A = KFHUDAlpha;
+	HuskAmmoIcon.Tints[1].A = KFHUDAlpha;
+	PipeBombIcon.Tints[0].A = KFHUDAlpha;
+	PipeBombIcon.Tints[1].A = KFHUDAlpha;
+	LawRocketIcon.Tints[0].A = KFHUDAlpha;
+	LawRocketIcon.Tints[1].A = KFHUDAlpha;
+    ArrowheadIcon.Tints[0].A = KFHUDAlpha;
+    ArrowheadIcon.Tints[1].A = KFHUDAlpha;
+    SawAmmoIcon.Tints[0].A = KFHUDAlpha;
+    SawAmmoIcon.Tints[1].A = KFHUDAlpha;
+    SingleBulletIcon.Tints[0].A = KFHUDAlpha;
+    SingleBulletIcon.Tints[1].A = KFHUDAlpha;
+    FlameIcon.Tints[0].A = KFHUDAlpha;
+    FlameIcon.Tints[1].A = KFHUDAlpha;
+	FlameTankIcon.Tints[0].A = KFHUDAlpha;
+	FlameTankIcon.Tints[1].A = KFHUDAlpha;
+	ZEDAmmoIcon.Tints[0].A = KFHUDAlpha;
+	ZEDAmmoIcon.Tints[1].A = KFHUDAlpha;
+
+	FlashlightBG.Tints[0].A = KFHUDAlpha;
+	FlashlightBG.Tints[1].A = KFHUDAlpha;
+	FlashlightIcon.Tints[0].A = KFHUDAlpha;
+	FlashlightIcon.Tints[1].A = KFHUDAlpha;
+	FlashlightOffIcon.Tints[0].A = KFHUDAlpha;
+	FlashlightOffIcon.Tints[1].A = KFHUDAlpha;
+	FlashlightDigits.Tints[0].A = KFHUDAlpha;
+	FlashlightDigits.Tints[1].A = KFHUDAlpha;
+
+	WelderBG.Tints[0].A = KFHUDAlpha;
+	WelderBG.Tints[1].A = KFHUDAlpha;
+	WelderIcon.Tints[0].A = KFHUDAlpha;
+	WelderIcon.Tints[1].A = KFHUDAlpha;
+	WelderDigits.Tints[0].A = KFHUDAlpha;
+	WelderDigits.Tints[1].A = KFHUDAlpha;
+
+	SyringeBG.Tints[0].A = KFHUDAlpha;
+	SyringeBG.Tints[1].A = KFHUDAlpha;
+	SyringeIcon.Tints[0].A = KFHUDAlpha;
+	SyringeIcon.Tints[1].A = KFHUDAlpha;
+	SyringeDigits.Tints[0].A = KFHUDAlpha;
+	SyringeDigits.Tints[1].A = KFHUDAlpha;
+
+	MedicGunBG.Tints[0].A = KFHUDAlpha;
+	MedicGunBG.Tints[1].A = KFHUDAlpha;
+	MedicGunIcon.Tints[0].A = KFHUDAlpha;
+	MedicGunIcon.Tints[1].A = KFHUDAlpha;
+	MedicGunDigits.Tints[0].A = KFHUDAlpha;
+	MedicGunDigits.Tints[1].A = KFHUDAlpha;
+
+	QuickSyringeBG.Tints[0].A = KFHUDAlpha;
+	QuickSyringeBG.Tints[1].A = KFHUDAlpha;
+	QuickSyringeIcon.Tints[0].A = KFHUDAlpha;
+	QuickSyringeIcon.Tints[1].A = KFHUDAlpha;
+	QuickSyringeDigits.Tints[0].A = KFHUDAlpha;
+	QuickSyringeDigits.Tints[1].A = KFHUDAlpha;
+
+	CashIcon.Tints[0].A = KFHUDAlpha;
+	CashIcon.Tints[1].A = KFHUDAlpha;
+	CashDigits.Tints[0].A = KFHUDAlpha;
+	CashDigits.Tints[1].A = KFHUDAlpha;
+}
+
 simulated function UpdateHud()
 {
 	local float MaxGren, CurGren;
@@ -451,13 +571,25 @@ simulated function DrawHudPassA (Canvas C)
 		}*/
 
 		DrawSpriteWidget(C, WeightIcon);
+		// Custom Weight Text, using the new Custom Font!
+		WeightDigits.Value = int(KFHPawn.CurrentWeight);
+		WeightDigitsMax.Value = int(KFHPawn.MaxCarryWeight);
+		DrawNumericWidget(C, WeightDigits, DigitsSmall);
+		DrawNumericWidget(C, WeightDigitsMax, DigitsSmall);
 
 		C.Font = LoadSmallFontStatic(5);
 		C.FontScaleX = C.ClipX / 1024.0;
 		C.FontScaleY = C.FontScaleX;
-		C.SetPos(C.ClipX * WeightDigits.PosX, C.ClipY * WeightDigits.PosY);
-		C.DrawColor = WeightDigits.Tints[0];
-		C.DrawText(int(KFHPawn.CurrentWeight)$"/"$int(KFHPawn.MaxCarryWeight));
+		if (int(KFHPawn.CurrentWeight) < 10)
+		{
+			C.SetPos(C.ClipX * WeightDigits.PosX + 40.0, C.ClipY * WeightDigits.PosY - 10);
+		}
+		else
+		{
+			C.SetPos(C.ClipX * WeightDigits.PosX + 45.0, C.ClipY * WeightDigits.PosY - 10);
+		}
+		C.DrawColor = Teal;
+		C.DrawText("|");
 		C.FontScaleX = 1;
 		C.FontScaleY = 1;
 	}
@@ -785,6 +917,13 @@ simulated function DrawHudPassA (Canvas C)
 
 defaultproperties
 {
+
+	// Colors
+	Teal = (R=60,G=179,B=113,A=255)
+	// Numbers(kinda like fonts)
+	DigitsSmall=(DigitTexture=Texture'ColorfulHUD.TextElements.Hud_numbers',TextureCoords[0]=(X1=8,Y1=6,X2=36,Y2=38),TextureCoords[1]=(X1=50,Y1=6,X2=68,Y2=38),TextureCoords[2]=(X1=83,Y1=6,X2=113,Y2=38),TextureCoords[3]=(X1=129,Y1=6,X2=157,Y2=38),TextureCoords[4]=(X1=169,Y1=6,X2=197,Y2=38),TextureCoords[5]=(X1=206,Y1=6,X2=235,Y2=38),TextureCoords[6]=(X1=241,Y1=6,X2=269,Y2=38),TextureCoords[7]=(X1=285,Y1=6,X2=315,Y2=38),TextureCoords[8]=(X1=318,Y1=6,X2=348,Y2=38),TextureCoords[9]=(X1=357,Y1=6,X2=388,Y2=38),TextureCoords[10]=(X1=390,Y1=6,X2=428,Y2=38))
+	DigitsBig=(DigitTexture=Texture'ColorfulHUD.TextElements.Hud_numbers',TextureCoords[0]=(X1=8,Y1=6,X2=36,Y2=38),TextureCoords[1]=(X1=50,Y1=6,X2=68,Y2=38),TextureCoords[2]=(X1=83,Y1=6,X2=113,Y2=38),TextureCoords[3]=(X1=129,Y1=6,X2=157,Y2=38),TextureCoords[4]=(X1=169,Y1=6,X2=197,Y2=38),TextureCoords[5]=(X1=206,Y1=6,X2=235,Y2=38),TextureCoords[6]=(X1=241,Y1=6,X2=269,Y2=38),TextureCoords[7]=(X1=285,Y1=6,X2=315,Y2=38),TextureCoords[8]=(X1=318,Y1=6,X2=348,Y2=38),TextureCoords[9]=(X1=357,Y1=6,X2=388,Y2=38),TextureCoords[10]=(X1=390,Y1=6,X2=428,Y2=38))
+
 	// Health
 	HealthBG=(WidgetTexture=Texture'ColorfulHUD.HUD.Hud_Box_128x64',RenderStyle=STY_Alpha,TextureCoords=(X2=128,Y2=64),TextureScale=0.35,DrawPivot=DP_UpperLeft,PosX=0.015,PosY=0.935,ScaleMode=SM_Right,Scale=1.000000,Tints[0]=(B=255,G=255,R=255,A=128),Tints[1]=(B=255,G=255,R=255,A=128))
 	HealthIcon=(WidgetTexture=Texture'ColorfulHUD.HUD.Hud_Medical_Cross',RenderStyle=STY_Alpha,TextureCoords=(X2=64,Y2=64),TextureScale=0.28,DrawPivot=DP_UpperLeft,PosX=0.021,PosY=0.947,ScaleMode=SM_Right,Scale=1.000000,Tints[0]=(B=255,G=255,R=255,A=255),Tints[1]=(B=255,G=255,R=255,A=255))
@@ -798,7 +937,8 @@ defaultproperties
 	// Weight
 	WeightBG=(WidgetTexture=Texture'ColorfulHUD.HUD.Hud_Box_128x64',RenderStyle=STY_Alpha,TextureCoords=(X2=256,Y2=64),TextureScale=0.35,DrawPivot=DP_UpperLeft,PosX=0.155,PosY=0.935,ScaleMode=SM_Right,Scale=1.000000,Tints[0]=(B=255,G=255,R=255,A=128),Tints[1]=(B=255,G=255,R=255,A=128))
 	WeightIcon=(WidgetTexture=Texture'ColorfulHUD.HUD.Hud_Weight',RenderStyle=STY_Alpha,TextureCoords=(X2=64,Y2=64),TextureScale=0.28,DrawPivot=DP_UpperLeft,PosX=0.16,PosY=0.944,ScaleMode=SM_Right,Scale=1.000000,Tints[0]=(B=255,G=255,R=255,A=255),Tints[1]=(B=255,G=255,R=255,A=255))
-	WeightDigits=(RenderStyle=STY_Alpha,TextureScale=0.30,DrawPivot=DP_UpperLeft,PosX=0.195,PosY=0.946,Tints[0]=(R=255,G=255,B=255,A=255),Tints[1]=(R=255,G=255,B=255,A=255))
+	WeightDigits=(RenderStyle=STY_Alpha,TextureScale=0.30,DrawPivot=DP_UpperLeft,PosX=0.195,PosY=0.956,Tints[0]=(R=255,G=255,B=255,A=255),Tints[1]=(R=255,G=255,B=255,A=255))
+	WeightDigitsMax=(RenderStyle=STY_Alpha,TextureScale=0.30,DrawPivot=DP_UpperLeft,PosX=0.232,PosY=0.956,Tints[0]=(R=255,G=255,B=255,A=255),Tints[1]=(R=255,G=255,B=255,A=255))
 
 	// Grenade
 	GrenadeBG=(WidgetTexture=Texture'ColorfulHUD.HUD.Hud_Box_128x64',RenderStyle=STY_Alpha,TextureCoords=(X2=128,Y2=64),TextureScale=0.35,DrawPivot=DP_UpperLeft,PosX=0.915,PosY=0.935,ScaleMode=SM_Right,Scale=1.000000,Tints[0]=(B=255,G=255,R=255,A=255),Tints[1]=(B=255,G=255,R=255,A=255))
