@@ -4,6 +4,7 @@ class ColorfulHUD extends HUDKillingFloor;
 #exec OBJ LOAD FILE=ColorfulHUD.utx
 
 var() NumericWidget WeightDigitsMax;
+var() SpriteWidget WeightDivider;
 var() color Teal;
 
 simulated function SetHUDAlpha()
@@ -30,6 +31,8 @@ simulated function SetHUDAlpha()
 	WeightDigits.Tints[1].A = KFHUDAlpha;
 	WeightDigitsMax.Tints[0].A = KFHUDAlpha;
 	WeightDigitsMax.Tints[1].A = KFHUDAlpha;
+	WeightDivider.Tints[0].A = KFHUDAlpha;
+	WeightDivider.Tints[1].A = KFHUDAlpha;
 
 	GrenadeBG.Tints[0].A = KFHUDAlpha;
 	GrenadeBG.Tints[1].A = KFHUDAlpha;
@@ -570,22 +573,7 @@ simulated function DrawHudPassA (Canvas C)
 		WeightDigitsMax.Value = int(KFHPawn.MaxCarryWeight);
 		DrawNumericWidget(C, WeightDigits, DigitsSmall);
 		DrawNumericWidget(C, WeightDigitsMax, DigitsSmall);
-
-		C.Font = LoadSmallFontStatic(5);
-		C.FontScaleX = C.ClipX / 1024.0;
-		C.FontScaleY = C.FontScaleX;
-		if (int(KFHPawn.CurrentWeight) < 10)
-		{
-			C.SetPos(C.ClipX * WeightDigits.PosX + 42.0, C.ClipY * WeightDigits.PosY - 10);
-		}
-		else
-		{
-			C.SetPos(C.ClipX * WeightDigits.PosX + 45.0, C.ClipY * WeightDigits.PosY - 10);
-		}
-		C.DrawColor = Teal;
-		C.DrawText("|");
-		C.FontScaleX = 1;
-		C.FontScaleY = 1;
+		DrawSpriteWidget(C, WeightDivider);
 	}
 
 	// Always LightHUD
@@ -893,8 +881,9 @@ defaultproperties
 	// Weight
 	WeightBG=(WidgetTexture=Texture'ColorfulHUD.HUD.Hud_Box_128x64',RenderStyle=STY_Alpha,TextureCoords=(X2=256,Y2=64),TextureScale=0.35,DrawPivot=DP_UpperLeft,PosX=0.155,PosY=0.935,ScaleMode=SM_Right,Scale=1.000000,Tints[0]=(B=255,G=255,R=255,A=128),Tints[1]=(B=255,G=255,R=255,A=128))
 	WeightIcon=(WidgetTexture=Texture'ColorfulHUD.HUD.Hud_Weight',RenderStyle=STY_Alpha,TextureCoords=(X2=64,Y2=64),TextureScale=0.28,DrawPivot=DP_UpperLeft,PosX=0.16,PosY=0.944,ScaleMode=SM_Right,Scale=1.000000,Tints[0]=(B=255,G=255,R=255,A=255),Tints[1]=(B=255,G=255,R=255,A=255))
-	WeightDigits=(RenderStyle=STY_Alpha,TextureScale=0.30,DrawPivot=DP_UpperLeft,PosX=0.195,PosY=0.956,Tints[0]=(R=255,G=255,B=255,A=255),Tints[1]=(R=255,G=255,B=255,A=255))
-	WeightDigitsMax=(RenderStyle=STY_Alpha,TextureScale=0.30,DrawPivot=DP_UpperLeft,PosX=0.232,PosY=0.956,Tints[0]=(R=255,G=255,B=255,A=255),Tints[1]=(R=255,G=255,B=255,A=255))
+	WeightDivider=(WidgetTexture=Texture'ColorfulHUD.HUD.Hud_Weight_Divider',RenderStyle=STY_Alpha,TextureCoords=(X2=32,Y2=32),TextureScale=0.32,DrawPivot=DP_UpperLeft,PosX=0.196,PosY=0.956,ScaleMode=SM_Right,Scale=1.000000,Tints[0]=(B=255,G=255,R=255,A=255),Tints[1]=(B=255,G=255,R=255,A=255))
+	WeightDigits=(RenderStyle=STY_Alpha,TextureScale=0.24,DrawPivot=DP_UpperLeft,PosX=0.195,PosY=0.948,Tints[0]=(R=255,G=255,B=255,A=255),Tints[1]=(R=255,G=255,B=255,A=255))
+	WeightDigitsMax=(RenderStyle=STY_Alpha,TextureScale=0.24,DrawPivot=DP_UpperLeft,PosX=0.195,PosY=0.969,Tints[0]=(R=255,G=255,B=255,A=255),Tints[1]=(R=255,G=255,B=255,A=255))
 
 	// Grenade
 	GrenadeBG=(WidgetTexture=Texture'ColorfulHUD.HUD.Hud_Box_128x64',RenderStyle=STY_Alpha,TextureCoords=(X2=128,Y2=64),TextureScale=0.35,DrawPivot=DP_UpperLeft,PosX=0.915,PosY=0.935,ScaleMode=SM_Right,Scale=1.000000,Tints[0]=(B=255,G=255,R=255,A=255),Tints[1]=(B=255,G=255,R=255,A=255))
