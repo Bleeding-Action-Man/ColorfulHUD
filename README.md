@@ -25,4 +25,10 @@ Elements Replaced:
 
 Anything else that i've forgot about :D
 
+## NOTE
+
+```text
+Perk Icons are NOT Supported with Custom game types like ServerPerks or ScrN. Basically anything that edits the Perks to make them custom
+```
+
 [Steam-Workshop](https://steamcommunity.com/id/Vel-San/myworkshopfiles/)
