@@ -690,25 +690,25 @@ simulated function DrawHudPassA (Canvas C)
 
             	if ( MedicGunDigits.Value < 50 )
             	{
-            		MedicGunDigits.Tints[0].R = 128;
-            		MedicGunDigits.Tints[0].G = 128;
-            		MedicGunDigits.Tints[0].B = 128;
+            		MedicGunDigits.Tints[0].R = 60;
+            		MedicGunDigits.Tints[0].G = 179;
+            		MedicGunDigits.Tints[0].B = 113;
 
             		MedicGunDigits.Tints[1] = SyringeDigits.Tints[0];
             	}
             	else if ( MedicGunDigits.Value < 100 )
             	{
-            		MedicGunDigits.Tints[0].R = 192;
-            		MedicGunDigits.Tints[0].G = 96;
-            		MedicGunDigits.Tints[0].B = 96;
+            		MedicGunDigits.Tints[0].R = 255;
+            		MedicGunDigits.Tints[0].G = 255;
+            		MedicGunDigits.Tints[0].B = 255;
 
             		MedicGunDigits.Tints[1] = SyringeDigits.Tints[0];
             	}
             	else
             	{
             		MedicGunDigits.Tints[0].R = 255;
-            		MedicGunDigits.Tints[0].G = 64;
-            		MedicGunDigits.Tints[0].B = 64;
+            		MedicGunDigits.Tints[0].G = 255;
+            		MedicGunDigits.Tints[0].B = 255;
 
             		MedicGunDigits.Tints[1] = MedicGunDigits.Tints[0];
             	}
