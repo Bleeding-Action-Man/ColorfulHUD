@@ -219,8 +219,6 @@ simulated function UpdateHud()
     	HealthDigits.Tints[1] = HealthDigits.Tints[0];
 	}
 
-
-
 	CashDigits.Value = PawnOwnerPRI.Score;
 
 	WelderDigits.Value = 100 * (CurAmmoPrimary / MaxAmmoPrimary);
@@ -253,13 +251,10 @@ simulated function UpdateHud()
 		SyringeDigits.Tints[1] = SyringeDigits.Tints[0];
 	}
 
-	if ( bDisplayQuickSyringe  )
-	{
-		S = Syringe(PawnOwner.FindInventoryType(class'Syringe'));
-		if ( S != none )
+	S = Syringe(PawnOwner.FindInventoryType(class'Syringe'));
+	if ( S != none )
 		{
 			QuickSyringeDigits.Value = S.ChargeBar() * 100;
-
 			if ( QuickSyringeDigits.Value < 50 )
 			{
 				// Teal
@@ -286,7 +281,6 @@ simulated function UpdateHud()
 				QuickSyringeDigits.Tints[1] = QuickSyringeDigits.Tints[0];
 			}
 		}
-	}
 
 	// Hints
 	if ( PawnOwner.Health <= 50 )
@@ -618,53 +612,14 @@ simulated function DrawHudPassA (Canvas C)
 		}
 		else
 		{
-			if ( bDisplayQuickSyringe )
+			// Always LightHUD
+			/*if ( !bLightHud )
 			{
-				TempSize = Level.TimeSeconds - QuickSyringeStartTime;
-				if ( TempSize < QuickSyringeDisplayTime )
-				{
-					if ( TempSize < QuickSyringeFadeInTime )
-					{
-						QuickSyringeBG.Tints[0].A = int((TempSize / QuickSyringeFadeInTime) * 255.0);
-						QuickSyringeBG.Tints[1].A = QuickSyringeBG.Tints[0].A;
-						QuickSyringeIcon.Tints[0].A = QuickSyringeBG.Tints[0].A;
-						QuickSyringeIcon.Tints[1].A = QuickSyringeBG.Tints[0].A;
-						QuickSyringeDigits.Tints[0].A = QuickSyringeBG.Tints[0].A;
-						QuickSyringeDigits.Tints[1].A = QuickSyringeBG.Tints[0].A;
-					}
-					else if ( TempSize > QuickSyringeDisplayTime - QuickSyringeFadeOutTime )
-					{
-						QuickSyringeBG.Tints[0].A = int((1.0 - ((TempSize - (QuickSyringeDisplayTime - QuickSyringeFadeOutTime)) / QuickSyringeFadeOutTime)) * 255.0);
-						QuickSyringeBG.Tints[1].A = QuickSyringeBG.Tints[0].A;
-						QuickSyringeIcon.Tints[0].A = QuickSyringeBG.Tints[0].A;
-						QuickSyringeIcon.Tints[1].A = QuickSyringeBG.Tints[0].A;
-						QuickSyringeDigits.Tints[0].A = QuickSyringeBG.Tints[0].A;
-						QuickSyringeDigits.Tints[1].A = QuickSyringeBG.Tints[0].A;
-					}
-					else
-					{
-						QuickSyringeBG.Tints[0].A = 255;
-						QuickSyringeBG.Tints[1].A = 255;
-						QuickSyringeIcon.Tints[0].A = 255;
-						QuickSyringeIcon.Tints[1].A = 255;
-						QuickSyringeDigits.Tints[0].A = 255;
-						QuickSyringeDigits.Tints[1].A = 255;
-					}
+				DrawSpriteWidget(C, QuickSyringeBG);
+			}*/
 
-					// Always LightHUD
-					/*if ( !bLightHud )
-					{
-						DrawSpriteWidget(C, QuickSyringeBG);
-					}*/
-
-					DrawSpriteWidget(C, QuickSyringeIcon);
-					DrawNumericWidget(C, QuickSyringeDigits, DigitsSmall);
-				}
-				else
-				{
-					bDisplayQuickSyringe = false;
-				}
-			}
+			DrawSpriteWidget(C, QuickSyringeIcon);
+			DrawNumericWidget(C, QuickSyringeDigits, DigitsSmall);
 
     		if ( MP7MMedicGun(PawnOwner.Weapon) != none || MP5MMedicGun(PawnOwner.Weapon) != none || M7A3MMedicGun(PawnOwner.Weapon) != none  )
     		if ( MP7MMedicGun(PawnOwner.Weapon) != none || MP5MMedicGun(PawnOwner.Weapon) != none
