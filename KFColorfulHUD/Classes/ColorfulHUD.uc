@@ -861,82 +861,14 @@ simulated function DrawHudPassA (Canvas C)
 	{
 		if ( KFPRI.ClientVeteranSkillLevel > 5 )
 		{
-			// Override Perk Icons; Smart Solution with minimum effort!
-			switch (KFPRI.ClientVeteranSkill.Default.VeterancyName)
-			{
-				case "Demolitions":
-					TempMaterial = Texture'ColorfulHUD.Perks.Perk_Demolition';
-					KFPRI.ClientVeteranSkill.default.OnHUDGoldIcon = Texture'ColorfulHUD.Perks.Perk_Demolition';
-					break;
-				case "Support Specialist":
-					TempMaterial = Texture'ColorfulHUD.Perks.Perk_Support';
-					KFPRI.ClientVeteranSkill.default.OnHUDGoldIcon = Texture'ColorfulHUD.Perks.Perk_Support';
-					break;
-				case "Sharpshooter":
-					TempMaterial = Texture'ColorfulHUD.Perks.Perk_Sharpshooter';
-					KFPRI.ClientVeteranSkill.default.OnHUDGoldIcon = Texture'ColorfulHUD.Perks.Perk_Sharpshooter';
-					break;
-				case "Firebug":
-					TempMaterial = Texture'ColorfulHUD.Perks.Perk_Firebug';
-					KFPRI.ClientVeteranSkill.default.OnHUDGoldIcon = Texture'ColorfulHUD.Perks.Perk_Firebug';
-					break;
-				case "Field Medic":
-					TempMaterial = Texture'ColorfulHUD.Perks.Perk_Medic';
-					KFPRI.ClientVeteranSkill.default.OnHUDGoldIcon = Texture'ColorfulHUD.Perks.Perk_Medic';
-					break;
-				case "Commando":
-					TempMaterial = Texture'ColorfulHUD.Perks.Perk_Commando';
-					KFPRI.ClientVeteranSkill.default.OnHUDGoldIcon = Texture'ColorfulHUD.Perks.Perk_Commando';
-					break;
-				case "Berserker":
-					TempMaterial = Texture'ColorfulHUD.Perks.Perk_Berserk';
-					KFPRI.ClientVeteranSkill.default.OnHUDGoldIcon = Texture'ColorfulHUD.Perks.Perk_Berserk';
-					break;
-				default:
-					TempMaterial = KFPRI.ClientVeteranSkill.default.OnHUDGoldIcon;
-					break;
-			}
+			TempMaterial = KFPRI.ClientVeteranSkill.default.OnHUDGoldIcon;
 			TempStarMaterial = VetStarGoldMaterial;
 			TempLevel = KFPRI.ClientVeteranSkillLevel - 5;
 			C.SetDrawColor(255, 255, 255, 192);
 		}
 		else
 		{
-			// Override Perk Icons; Smart Solution with minimum effort!
-			switch (KFPRI.ClientVeteranSkill.Default.VeterancyName)
-			{
-				case "Demolitions":
-					TempMaterial = Texture'ColorfulHUD.Perks.Perk_Demolition';
-					KFPRI.ClientVeteranSkill.default.OnHUDIcon = Texture'ColorfulHUD.Perks.Perk_Demolition';
-					break;
-				case "Support Specialist":
-					TempMaterial = Texture'ColorfulHUD.Perks.Perk_Support';
-					KFPRI.ClientVeteranSkill.default.OnHUDIcon = Texture'ColorfulHUD.Perks.Perk_Support';
-					break;
-				case "Sharpshooter":
-					TempMaterial = Texture'ColorfulHUD.Perks.Perk_Sharpshooter';
-					KFPRI.ClientVeteranSkill.default.OnHUDIcon = Texture'ColorfulHUD.Perks.Perk_Sharpshooter';
-					break;
-				case "Firebug":
-					TempMaterial = Texture'ColorfulHUD.Perks.Perk_Firebug';
-					KFPRI.ClientVeteranSkill.default.OnHUDIcon = Texture'ColorfulHUD.Perks.Perk_Firebug';
-					break;
-				case "Field Medic":
-					TempMaterial = Texture'ColorfulHUD.Perks.Perk_Medic';
-					KFPRI.ClientVeteranSkill.default.OnHUDIcon = Texture'ColorfulHUD.Perks.Perk_Medic';
-					break;
-				case "Commando":
-					TempMaterial = Texture'ColorfulHUD.Perks.Perk_Commando';
-					KFPRI.ClientVeteranSkill.default.OnHUDIcon = Texture'ColorfulHUD.Perks.Perk_Commando';
-					break;
-				case "Berserker":
-					TempMaterial = Texture'ColorfulHUD.Perks.Perk_Berserk';
-					KFPRI.ClientVeteranSkill.default.OnHUDIcon = Texture'ColorfulHUD.Perks.Perk_Berserk';
-					break;
-				default:
-					TempMaterial = KFPRI.ClientVeteranSkill.default.OnHUDIcon;
-					break;
-			}
+			TempMaterial = KFPRI.ClientVeteranSkill.default.OnHUDIcon;
 			TempStarMaterial = VetStarMaterial;
 			TempLevel = KFPRI.ClientVeteranSkillLevel;
 		}
