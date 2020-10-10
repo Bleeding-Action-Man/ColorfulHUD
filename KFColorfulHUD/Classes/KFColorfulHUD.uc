@@ -36,7 +36,7 @@ defaultproperties
 {
 	// Mut Vars
     GroupName="KF-ColorfulHUD"
-    FriendlyName="Colorful HUD - v1.6"
+    FriendlyName="Colorful HUD - v1.7"
     Description="Replaces the HUD with a beautiful Green, Dark, White Elements & Colorful Icons!; by Vel-San"
 
 	// Mandatory Vars

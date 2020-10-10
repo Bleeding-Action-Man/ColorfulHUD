@@ -931,8 +931,8 @@ defaultproperties
 
 	// Flashlight(9mm and Shotgun)
 	FlashlightBG=(WidgetTexture=Texture'ColorfulHUD.HUD.Hud_Box_128x64',RenderStyle=STY_Alpha,TextureCoords=(X2=128,Y2=64),TextureScale=0.35,DrawPivot=DP_UpperLeft,PosX=0.705,PosY=0.941,Scale=1.000000,Tints[0]=(B=255,G=255,R=255,A=255),Tints[1]=(B=255,G=255,R=255,A=255))
-	FlashlightIcon=(WidgetTexture=Texture'ColorfulHUD.HUD.Hud_Flashlight',RenderStyle=STY_Alpha,TextureCoords=(X2=64,Y2=64),TextureScale=0.28,DrawPivot=DP_UpperLeft,PosX=0.701,PosY=0.941,Scale=1.000000,Tints[0]=(B=255,G=255,R=255,A=255),Tints[1]=(B=255,G=255,R=255,A=255))
-	FlashlightOffIcon=(WidgetTexture=Texture'ColorfulHUD.HUD.Hud_Flashlight_Off',RenderStyle=STY_Alpha,TextureCoords=(X2=64,Y2=64),TextureScale=0.28,DrawPivot=DP_UpperLeft,PosX=0.701,PosY=0.941,Scale=1.000000,Tints[0]=(B=255,G=255,R=255,A=255),Tints[1]=(B=255,G=255,R=255,A=255))
+	FlashlightIcon=(WidgetTexture=Texture'ColorfulHUD.HUD.Hud_Flashlight',RenderStyle=STY_Alpha,TextureCoords=(X2=64,Y2=64),TextureScale=0.28,DrawPivot=DP_UpperLeft,PosX=0.701,PosY=0.943,Scale=1.000000,Tints[0]=(B=255,G=255,R=255,A=255),Tints[1]=(B=255,G=255,R=255,A=255))
+	FlashlightOffIcon=(WidgetTexture=Texture'ColorfulHUD.HUD.Hud_Flashlight_Off',RenderStyle=STY_Alpha,TextureCoords=(X2=64,Y2=64),TextureScale=0.28,DrawPivot=DP_UpperLeft,PosX=0.701,PosY=0.943,Scale=1.000000,Tints[0]=(B=255,G=255,R=255,A=255),Tints[1]=(B=255,G=255,R=255,A=255))
 	FlashlightDigits=(RenderStyle=STY_Alpha,TextureScale=0.30,DrawPivot=DP_UpperLeft,PosX=0.731,PosY=0.956,Tints[0]=(R=255,G=255,B=255,A=255),Tints[1]=(R=255,G=255,B=255,A=255))
 
 	// Welder only
