@@ -33,7 +33,7 @@ Anything else that I've forgot about :D
 Elements that haven't been changed yet:
 
 [code]
-[strike]- Perk Icons[/strike] - Added as of v1.1 , however, not supported by ScrN or ServerPerks !!
+- Perk Icons[/strike]
 [/code]
 
 [H1][b][u]Notes[/u][/b][/H1]
@@ -41,7 +41,7 @@ Elements that haven't been changed yet:
 For Players:
 
 - Once enabled, anyone who joins your server will also have this HUD.
-- Tested with ServerPerks & working properly.
+- Tested with ServerPerks
 - NOT Tested with ScrN Balance!
 
 For Devs:
