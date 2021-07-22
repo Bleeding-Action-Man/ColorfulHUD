@@ -28,25 +28,15 @@ Elements Fixed:
 - Fix for Weight numbers being so wonky from TWI code (Made them as Numeric Widgets)
 [/code]
 
-Anything else that I've forgot about :D
-
 Elements that haven't been changed yet:
 
 [code]
 - Perk Icons[/strike]
 [/code]
 
-[H1][b][u]Notes[/u][/b][/H1]
+[H1][b][u]Whitelist Status[/u][/b][/H1]
 
-For Players:
-
-- Once enabled, anyone who joins your server will also have this HUD.
-- Tested with ServerPerks
-- NOT Tested with ScrN Balance!
-
-For Devs:
-
-- This 'Might' have issues with any other mod or mutator that touches HUDKillingFloor Class.
+- NO | Requires client-side modifications
 
 [H1][b][u]Number Of Files[/u][/b][/H1]
 
@@ -54,10 +44,10 @@ For Devs:
 
 [H1][b][u]File Names[/u][/b][/H1]
 
-- \System\KFColorfulHUD.u
-- \System\KFColorfulHUD.ucl
+- \System\ColorfulHUD.u
+- \System\ColorfulHUD.ucl
 
-- \Textures\KFColorfulHUD.utx
+- \Textures\ColorfulHUD.utx
 
 - \StaticMeshes\GreenShopArrow.usx
 
@@ -69,10 +59,8 @@ For Devs:
 
 [H1][b][u]Class Names[/u][/b][/H1]
 
-- KFColorfulHUD.KFColorfulHUD
+- ColorfulHUD.ColorfulHUD
 
 [H1][b][u]Manual Download Links (Recommended)[/u][/b][/H1]
 
-You can find it under 'Not Whitelisted' folder named 'KF-ColorfulHUD-v1.7'
-
-MEGA Link: https://mega DOT nz/folder/YDoEmKiC#s6FGAtgh40-TvB4bHsLaMQ
+- Github: https://github.com/Bleeding-Action-Man/ColorfulHUD/releases
